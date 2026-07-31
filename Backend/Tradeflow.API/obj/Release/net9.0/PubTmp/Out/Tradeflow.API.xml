@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tradeflow.API</name>
+    </assembly>
+    <members>
+        <member name="M:Tradeflow.API.Controllers.AuthController.Login(Tradeflow.Application.Commands.Auth.LoginCommand)">
+            <summary>
+            Login endpoint for employees
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CategoriesController.GetAll">
+            <summary>
+            Get all categories
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CategoriesController.GetById(System.Int32)">
+            <summary>
+            Get category by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CategoriesController.Create(Tradeflow.Application.Commands.Categories.CreateCategoryCommand)">
+            <summary>
+            Create a new category
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CategoriesController.Update(System.Int32,Tradeflow.Application.Commands.Categories.UpdateCategoryCommand)">
+            <summary>
+            Update an existing category
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CategoriesController.Delete(System.Int32)">
+            <summary>
+            Delete a category
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CommissionsController.GetAll">
+            <summary>
+            Get all commissions
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CommissionsController.GetById(System.Int32)">
+            <summary>
+            Get commission by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CommissionsController.Create(Tradeflow.Application.Commands.Commissions.CreateCommissionCommand)">
+            <summary>
+            Create a new commission
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CommissionsController.Update(System.Int32,Tradeflow.Application.Commands.Commissions.UpdateCommissionCommand)">
+            <summary>
+            Update an existing commission
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CommissionsController.Delete(System.Int32)">
+            <summary>
+            Delete a commission
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CustomersController.GetAll">
+            <summary>
+            Get all customers
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CustomersController.GetById(System.Int32)">
+            <summary>
+            Get customer by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CustomersController.Create(Tradeflow.Application.Commands.Customers.CreateCustomerCommand)">
+            <summary>
+            Create a new customer
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CustomersController.Update(System.Int32,Tradeflow.Application.Commands.Customers.UpdateCustomerCommand)">
+            <summary>
+            Update an existing customer
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.CustomersController.Delete(System.Int32)">
+            <summary>
+            Delete a customer
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.DashboardController.GetDashboardStats">
+            <summary>
+            Get dashboard statistics and metrics
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.GetAll">
+            <summary>
+            Get all employees
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.GetById(System.Int32)">
+            <summary>
+            Get employee by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.Create(Tradeflow.Application.Commands.Employees.CreateEmployeeCommand)">
+            <summary>
+            Create a new employee
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.Update(System.Int32,Tradeflow.Application.Commands.Employees.UpdateEmployeeCommand)">
+            <summary>
+            Update an existing employee
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.Delete(System.Int32)">
+            <summary>
+            Delete an employee
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance(System.Int32)">
+            <summary>
+            Get sales representative performance metrics
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.GetAll">
+            <summary>
+            Get all products (excluding soft-deleted)
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.GetById(System.Int32)">
+            <summary>
+            Get product by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.Create(Tradeflow.Application.Commands.Products.CreateProductCommand)">
+            <summary>
+            Create a new product
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.Update(System.Int32,Tradeflow.Application.Commands.Products.UpdateProductCommand)">
+            <summary>
+            Update an existing product
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.SoftDelete(System.Int32)">
+            <summary>
+            Soft delete a product (sets IsDeleted = true)
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.ProductsController.Delete(System.Int32)">
+            <summary>
+            Permanently delete a product
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.GetAll">
+            <summary>
+            Get all warehouses
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.GetById(System.Int32)">
+            <summary>
+            Get warehouse by ID
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.Create(Tradeflow.Application.Commands.Warehouses.CreateWarehouseCommand)">
+            <summary>
+            Create a new warehouse
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.Update(System.Int32,Tradeflow.Application.Commands.Warehouses.UpdateWarehouseCommand)">
+            <summary>
+            Update an existing warehouse
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.Delete(System.Int32)">
+            <summary>
+            Delete a warehouse
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse(System.Int32)">
+            <summary>
+            Get available products and quantities for a specific warehouse
+            </summary>
+        </member>
+        <member name="M:Tradeflow.API.Controllers.WarehousesController.AssignEmployeeToWarehouse(Tradeflow.Application.Commands.AssignEmployeeToWarehouseCommand)">
+            <summary>
+            Assign an employee to a warehouse
+            </summary>
+        </member>
+        <member name="M:OrdersController.GetAllOrders">
+            <summary>
+            Get all orders
+            </summary>
+        </member>
+        <member name="M:OrdersController.CreateOrder(Tradeflow.Application.Commands.CreateOrderCommand)">
+            <summary>
+            Create a new order with stock validation
+            </summary>
+        </member>
+        <member name="M:OrdersController.GetOrderById(System.Int32)">
+            <summary>
+            Get order by ID with full details including order items
+            </summary>
+        </member>
+        <member name="M:OrdersController.UpdateOrderStatus(System.Int32,Tradeflow.Application.Commands.UpdateOrderStatusCommand)">
+            <summary>
+            Update order status (Pending -> Approved -> Completed)
+            </summary>
+        </member>
+        <member name="M:OrdersController.GetOrdersBySalesRep(System.Int32)">
+            <summary>
+            Get orders for a specific sales representative
+            </summary>
+        </member>
+    </members>
+</doc>

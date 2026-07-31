@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Wholesale Pro Enterprise Suite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "outline": "#737686",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary": "#943700",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "on-primary-container": "#eeefff",
+                    "on-secondary-container": "#57657a",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-error": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004ac6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "inverse-surface": "#2d3133",
+                    "on-surface-variant": "#434655",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#515f74",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "32px",
+                    "xs": "4px",
+                    "column-gutter": "20px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-background {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(247, 249, 251, 1) 100%);
+        }
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #004ac6;
+            box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-md overflow-hidden relative">
+<!-- Atmospheric Background Decoration -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+<div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-primary-fixed filter blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[30vw] h-[30vw] rounded-full bg-secondary-fixed filter blur-[100px]"></div>
+</div>
+<!-- Main Content Shell -->
+<main class="w-full max-w-[440px] z-10">
+<!-- Brand Identity Container -->
+<div class="text-center mb-xl">
+<div class="inline-flex items-center justify-center p-sm bg-primary rounded-xl mb-md">
+<span class="material-symbols-outlined text-white text-[32px]" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Wholesale Pro</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Enterprise Management Suite</p>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm p-xl">
+<div class="mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">System Sign In</h2>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-xs">Secure Authorization Required</p>
+</div>
+<form class="space-y-lg" id="loginForm">
+<!-- Employee ID Field -->
+<div class="space-y-sm">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="employeeId">Employee ID</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
+<input class="w-full pl-[44px] pr-md py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-outline input-focus-ring transition-all" id="employeeId" name="employeeId" placeholder="EMP-000000" required="" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="password">Security Password</label>
+<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-[44px] pr-[44px] py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-outline input-focus-ring transition-all" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" id="togglePassword" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Toggle (Enterprise Standard) -->
+<div class="flex items-center gap-sm">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface-variant select-none" for="remember">Remember this workstation</label>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary-container text-white font-label-md text-body-lg py-3 rounded-lg shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="submit">
+                    Sign In to Dashboard
+                    <span class="material-symbols-outlined text-[18px]">login</span>
+</button>
+</form>
+<!-- Support Footer Inside Card -->
+<div class="mt-xl pt-lg border-t border-outline-variant flex justify-center gap-lg">
+<a class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">help</span>
+                    Support Desk
+                </a>
+<a class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">security</span>
+                    Access Policy
+                </a>
+</div>
+</div>
+<!-- External Footer Links -->
+<footer class="mt-lg flex flex-col items-center gap-sm">
+<div class="flex items-center gap-sm text-outline">
+<span class="font-label-md text-label-md">© 2024 Wholesale Pro Enterprise Suite</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-md text-label-md">v4.2.0-stable</span>
+</div>
+<div class="flex gap-md">
+<img class="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-help" data-alt="A clean and professional ISO 27001 security certification badge, minimalist blue and silver metallic finish, high-quality corporate branding icon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL7M6KZgcHsBlWNw3EhRj7o0En-iFox7KaqrOyF6btHh320ag6FkbJD6myNBgpu5tdoXpRmr5JVwilGdx9n6uGTu4zy7nqtcC-4EibXANWovgcDydsm1EXIS_RYxcjPZccJW2ssN8QyCJUKxEXE2ugZyAWRJwhkmWarfkgVS0oPtns7ygzjIIUGSw2oaHL56eQKiFoMZ2y83Nen6h8K95JNiKk6QrG5A7Fi5FM5RTSNA2vQnVuid7_0-k03GBhyYW6nC6TqWYQ7ug"/>
+<img class="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-help" data-alt="A minimalist SOC2 compliance badge icon, featuring a clean white and blue circular design, modern enterprise security standards logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Deb8h2H5ULbZZpiEMVhhkt4TCtf_xrig4OPDjSDJ3vFirX-b6PXOuOYAWdpM0bZinNPdZDPPZp7YoJ5Y3awfKWGCf3eJniPuPob6rkM3wdX5f7ysYANpau1dMhEZ2zj0k5lGUZgGPuhVYqNpdCZa-pHvNYDIARgR40i4Agf9VuuxQliIh4ms_1jgDHdJPAb3jjEWiuzyLm4Ka3VOGt5F65FvT7dogErAEYWcL7GRrsc03M-B1ivwpM-IMop4Xd1VvVkYhnhg9XM"/>
+</div>
+</footer>
+</main>
+<!-- Success Feedback Overlay (Hidden by default) -->
+<div class="fixed inset-0 bg-surface/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center hidden" id="loadingOverlay">
+<div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+<p class="mt-md font-label-md text-label-md text-on-surface animate-pulse">Authenticating with Central Server...</p>
+</div>
+<script>
+        // Password Visibility Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.querySelector('span').textContent = type === 'password' ? 'visibility' : 'visibility_off';
+        });
+
+        // Form Submission Interaction
+        const loginForm = document.getElementById('loginForm');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            loadingOverlay.classList.remove('hidden');
+            
+            // Artificial delay to simulate authentication
+            setTimeout(() => {
+                loadingOverlay.innerHTML = `
+                    <div class="flex flex-col items-center animate-bounce">
+                        <span class="material-symbols-outlined text-primary text-[64px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <p class="mt-md font-headline-md text-headline-md text-on-surface">Access Granted</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Redirecting to Warehouse Dashboard...</p>
+                    </div>
+                `;
+                
+                setTimeout(() => {
+                    // In a real app, this would be a window.location change
+                    console.log('Login successful. Redirecting...');
+                }, 1500);
+            }, 2000);
+        });
+
+        // Add subtle movement to the background circles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) - 0.5;
+            const y = (e.clientY / window.innerHeight) - 0.5;
+            
+            const circles = document.querySelectorAll('.rounded-full');
+            circles.forEach((circle, index) => {
+                const speed = (index + 1) * 20;
+                circle.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

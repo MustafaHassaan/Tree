@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wholesale Pro | Enterprise Management Suite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "outline": "#737686",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary": "#943700",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "on-primary-container": "#eeefff",
+                    "on-secondary-container": "#57657a",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-error": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004ac6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "inverse-surface": "#2d3133",
+                    "on-surface-variant": "#434655",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#515f74",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "32px",
+                    "xs": "4px",
+                    "column-gutter": "20px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface overflow-hidden">
+<!-- Shell Layout -->
+<div class="flex h-screen w-full overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-on-surface dark:bg-surface-on-surface flex flex-col border-r border-outline-variant z-40">
+<div class="p-lg flex flex-col gap-sm">
+<div class="font-headline-md text-headline-md font-bold text-on-primary mb-md">B2B Wholesale</div>
+<div class="text-on-primary opacity-70 font-label-md text-label-md uppercase tracking-wider mb-lg">Enterprise Suite</div>
+<nav class="flex flex-col gap-1">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container border-l-4 border-primary font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="font-body-md text-body-md">Warehouses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md text-body-md">Sales Reps</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-lg border-t border-outline-variant/20">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 mb-lg hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+                    New Order
+                </button>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] flex-1 flex flex-col h-screen bg-surface-bright overflow-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="h-16 w-full flex justify-between items-center px-lg bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-body-md focus:ring-2 focus:ring-primary/20" placeholder="Search orders, SKU, or customers..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center border-r border-outline-variant pr-md gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="flex items-center gap-md pl-sm">
+<button class="px-4 py-2 border border-outline-variant text-on-surface font-label-md rounded-lg hover:bg-surface-container-low transition-colors">Quick Actions</button>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-md rounded-lg hover:shadow-md transition-all active:opacity-80">Sync Data</button>
+<div class="h-10 w-10 rounded-full bg-secondary-container overflow-hidden border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a senior logistics manager in a modern corporate office, wearing a clean light blue button-down shirt. The background is a slightly blurred high-tech warehouse control center with screens showing data visualizations. The lighting is soft and neutral, conveying authority and reliable enterprise leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP2F1rOR7upT4_1F_UOkACmAgY25GxFcopeH1OPWoESpwKHDHEiciU3CIPSNZwycCFOaw5m7XOFLyXVRfUgJJFip005d-qc0PyNCPK53Gx2ejuwifSxFGho8zN9HM960UcIv6GF3GhAZsjB3sGuVCWxEAofdPoMJLfCXVtrFzheMp2qH34E0VIR735Qlw1_MUG7cOaibZypInIE1gBsGO9BLdbbb30YN2Jctm9rz3GZ4Hl4sbO3gUXguOsavfv-Gcpzt5Wu--02Mo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Scrollable View -->
+<div class="flex-1 overflow-y-auto p-xl hide-scrollbar">
+<!-- Page Title -->
+<div class="mb-xl flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Dashboard</h1>
+<p class="text-on-surface-variant font-body-lg">Operations overview for March 24, 2024</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-on-surface hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            Last 30 Days
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-on-surface hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Export
+                        </button>
+</div>
+</div>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl">
+<!-- KPI 1: Total Sales -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="text-primary font-bold text-label-sm px-2 py-1 bg-primary/10 rounded-full">+12.5%</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wide">Total Sales</p>
+<h2 class="text-headline-lg font-bold mt-1">$1,284,500</h2>
+<div class="mt-md w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+</div>
+<!-- KPI 2: Monthly Revenue -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+</div>
+<span class="text-primary font-bold text-label-sm px-2 py-1 bg-primary/10 rounded-full">+8.2%</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wide">Monthly Revenue</p>
+<h2 class="text-headline-lg font-bold mt-1">$412,320</h2>
+<div class="mt-md w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[62%]"></div>
+</div>
+</div>
+<!-- KPI 3: Active Customers -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-tertiary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">group</span>
+</div>
+<span class="text-on-tertiary-fixed-variant font-bold text-label-sm px-2 py-1 bg-tertiary-fixed/30 rounded-full">+42</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wide">Active Customers</p>
+<h2 class="text-headline-lg font-bold mt-1">1,482</h2>
+<div class="mt-md w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[85%]"></div>
+</div>
+</div>
+<!-- KPI 4: Low Stock Alerts -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-l-error">
+<div class="flex justify-between items-start mb-md">
+<div class="p-2 bg-error/10 rounded-lg">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<span class="text-error font-bold text-label-sm px-2 py-1 bg-error/10 rounded-full">CRITICAL</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wide">Low Stock Alerts</p>
+<h2 class="text-headline-lg font-bold mt-1 text-error">18 SKUs</h2>
+<div class="mt-md w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-error h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+<!-- Middle Content Section: Chart & Warehouse -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<!-- Sales Trend Chart Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h3 class="font-title-lg text-title-lg">Sales Performance</h3>
+<p class="text-label-md text-on-surface-variant">Revenue vs Projections (Last 7 Days)</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-label-sm">Actual</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="text-label-sm">Projected</span>
+</div>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="relative h-64 w-full flex items-end justify-between gap-4 px-2">
+<div class="absolute inset-0 grid grid-rows-4 pointer-events-none">
+<div class="border-b border-outline-variant/30"></div>
+<div class="border-b border-outline-variant/30"></div>
+<div class="border-b border-outline-variant/30"></div>
+<div class="border-b border-outline-variant/30"></div>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[60%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[85%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[75%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[92%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[65%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[105%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[90%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[88%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[80%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[95%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[40%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[70%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[30%] relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-primary h-[110%] rounded-t-sm group-hover:opacity-80 transition-all"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">Sun</span>
+</div>
+</div>
+</div>
+<!-- Warehouse Stock Summary -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="font-title-lg text-title-lg">Warehouse Status</h3>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-on-surface">Central Hub (Chicago)</span>
+<span class="font-label-md font-bold">92% Full</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full">
+<div class="bg-error h-full rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-on-surface">West Coast (L.A.)</span>
+<span class="font-label-md font-bold">64% Full</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 64%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-on-surface">East Coast (Jersey)</span>
+<span class="font-label-md font-bold">31% Full</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full">
+<div class="bg-secondary h-full rounded-full" style="width: 31%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-on-surface">Texas Regional</span>
+<span class="font-label-md font-bold">78% Full</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg py-2 border border-primary text-primary font-label-md rounded-lg hover:bg-primary/5 transition-colors">Manage All Sites</button>
+</div>
+</div>
+<!-- Bottom Row: Products and Leaderboard -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-lg">
+<!-- Top Selling Products Table -->
+<div class="xl:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg">Top Selling Products</h3>
+<a class="text-primary font-label-md hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-lg py-3 font-label-sm uppercase text-on-surface-variant">Product Name</th>
+<th class="px-lg py-3 font-label-sm uppercase text-on-surface-variant">SKU</th>
+<th class="px-lg py-3 font-label-sm uppercase text-on-surface-variant">Units Sold</th>
+<th class="px-lg py-3 font-label-sm uppercase text-on-surface-variant">Revenue</th>
+<th class="px-lg py-3 font-label-sm uppercase text-on-surface-variant text-right">Trend</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">devices</span>
+</div>
+<span class="font-body-md font-bold">Ultra-Wide 4K Pro Monitor</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant text-body-md">MN-4290-X</td>
+<td class="px-lg py-4 text-body-md">1,240</td>
+<td class="px-lg py-4 text-body-md font-bold">$186,000</td>
+<td class="px-lg py-4 text-right">
+<span class="text-primary material-symbols-outlined text-[18px]">trending_up</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">keyboard</span>
+</div>
+<span class="font-body-md font-bold">Mechanical Wireless Keyboard</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant text-body-md">KB-1102-W</td>
+<td class="px-lg py-4 text-body-md">980</td>
+<td class="px-lg py-4 text-body-md font-bold">$92,120</td>
+<td class="px-lg py-4 text-right">
+<span class="text-primary material-symbols-outlined text-[18px]">trending_up</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">headset</span>
+</div>
+<span class="font-body-md font-bold">Active Noise Cancelling Hub</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant text-body-md">HS-7731-P</td>
+<td class="px-lg py-4 text-body-md">752</td>
+<td class="px-lg py-4 text-body-md font-bold">$63,920</td>
+<td class="px-lg py-4 text-right">
+<span class="text-tertiary-container material-symbols-outlined text-[18px]">trending_flat</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">dock</span>
+</div>
+<span class="font-body-md font-bold">Thunderbolt 4 Docking Station</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant text-body-md">DK-4001-T</td>
+<td class="px-lg py-4 text-body-md">512</td>
+<td class="px-lg py-4 text-body-md font-bold">$122,880</td>
+<td class="px-lg py-4 text-right">
+<span class="text-error material-symbols-outlined text-[18px]">trending_down</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Sales Rep Performance Leaderboard -->
+<div class="bg-surface-container-lowest p-lg border border-outline-variant rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-title-lg text-title-lg">Sales Representatives</h3>
+<div class="flex gap-1">
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">filter_list</span></button>
+</div>
+</div>
+<div class="space-y-5">
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A smiling female professional in a modern business-casual outfit, featuring a sleek charcoal blazer. She is standing in a brightly lit corridor of a contemporary corporate office with glass walls. The lighting is crisp and energetic, suggesting a high-performance work environment with a clean, light-mode design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTt9G9707Bcv9ud2HMMXzsUoWBjLBFE01MUj4Qc2Wa6NA4vWsdpuTt-NvTU2etM1kN4PV0_iLTSsW5HrN_cx6q27vhhiWk4EpSAPt7EWSvbDxwEU99a3_C88LxyVAvJHXiAfiSJESyzxsev_wKx9WlOW5zo5KquS2DwgYjzHsT-Mf66dI7Qp-UehHcmBRksrE1SKa3VKMju-_cWPyWVzj_vPEswjYxRphjZcKt1DQI17JitP5NOMzBho5C5zMRNxwt_Iq7-sxe8hg"/>
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">1</span>
+</div>
+<div>
+<p class="font-body-md font-bold group-hover:text-primary transition-colors">Sarah Jenkins</p>
+<p class="text-label-sm text-on-surface-variant">West Region</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold">$82,450</p>
+<p class="text-label-sm text-primary">112% Goal</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-transparent overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A confident male sales representative in a crisp white shirt and a modern navy vest. He has a warm, professional expression and is captured in a well-lit, minimalist meeting room with subtle wooden accents. The overall aesthetic is professional, clean, and highly sophisticated, mirroring a premium B2B environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTLThB0MCK4kF77gvrK7BVkPicAky1TbZxJMpXFt0dm1uga81CuPxOvWjXOBenju_hhomIZdWgS60eL06ZeA0nPM0ZglulFjBbms3ZUS-RzamGAeIloTJPjVpwG9EbvPvLkcJcyl_yFNFHJkLblf5bFxwdSB0vdqUQxOilx1uFyqWHkXYPExqiB9TI_u41DIafGSd4yb2DDTdBJlQRu83FXlPl-KugeVBj-uIfEWzlQlJBGazOVUiWciwj6RlA28yFUz6NdyPMCiw"/>
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 bg-outline-variant text-on-surface text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">2</span>
+</div>
+<div>
+<p class="font-body-md font-bold group-hover:text-primary transition-colors">Michael Chen</p>
+<p class="text-label-sm text-on-surface-variant">Central Region</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold">$74,200</p>
+<p class="text-label-sm text-secondary">98% Goal</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-transparent overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A focused professional male with glasses, wearing a dark turtleneck in a modern office lounge setting. Large windows in the background let in soft morning light, creating a calm and professional atmosphere. The image uses a cool-toned, high-contrast palette consistent with modern corporate design standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB77Sguzc3faaSs1CwwhctL86OEfEubggdHJGOXElNm6mHdxt0pUx6JazY41tup4O_3dZiz2D9-vLB9QM3alAghEk7n3Tm0-qs2rkF5KTYfKT5n7lvL1u5NQczzdfPmugR2qWn2QRFPPUkUmh7B_7z7JQ9Rg5U9tSMVF0A4BUP8g7sD5B4qoU2OsHcQu5f_rWq0ZtvyZjoq_q5RndQa5N_FNnMLf8o9WPogjg5tWepj8Y2rD6j89Dgd_W5pZcGbW1tMzNvWqqlU7cs"/>
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 bg-outline-variant text-on-surface text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">3</span>
+</div>
+<div>
+<p class="font-body-md font-bold group-hover:text-primary transition-colors">David Miller</p>
+<p class="text-label-sm text-on-surface-variant">East Region</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold">$68,900</p>
+<p class="text-label-sm text-secondary">91% Goal</p>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-transparent overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cheerful female business representative with curly hair, wearing a structured cream-colored top. She is in a collaborative office space with modern furniture and green indoor plants. The lighting is bright and airy, portraying a positive and successful enterprise culture in a minimalist light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6N3SOs_HbZo322hAstPisEiJtI_NGYNT3dAb45tatHB1eWlPH5IipAI93a3iDjWvFDQSaSYZ2vDXF1ZRDoU9z9z1DNXQOCvmb_2cmDcYaDxnqjlkZhY7G5NQfHRmZHX9JuxQhHN4fbAWFd94d9uwbus_LzuUjJ5cL59A0VeBRrjxY01O4xBkoLgaN5P4Io_mrZZ1UVI_rs94yOPy5kXpWmsErLTBPpWryB1kdFP8UptMR3AT7HSYSt9gKwlaTwfa9K331PqlxE7E"/>
+</div>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 bg-outline-variant text-on-surface text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white">4</span>
+</div>
+<div>
+<p class="font-body-md font-bold group-hover:text-primary transition-colors">Elena Rodriguez</p>
+<p class="text-label-sm text-on-surface-variant">South Region</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold">$62,100</p>
+<p class="text-label-sm text-secondary">88% Goal</p>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant">
+<button class="w-full py-2 bg-surface-container-low text-on-surface-variant font-label-md rounded-lg hover:bg-surface-container-high transition-colors">Detailed Analytics</button>
+</div>
+</div>
+</div>
+<!-- Spacer for scroll -->
+<div class="h-12"></div>
+</div>
+</main>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple hover states and notification simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Wholesale Management Dashboard Loaded');
+            
+            // Simulation: Dynamic counter update
+            const counters = document.querySelectorAll('h2.text-headline-lg');
+            counters.forEach(counter => {
+                const originalText = counter.innerText;
+                counter.addEventListener('mouseenter', () => {
+                    counter.classList.add('text-primary');
+                    counter.style.transform = 'scale(1.02)';
+                    counter.style.transition = 'all 0.2s ease';
+                });
+                counter.addEventListener('mouseleave', () => {
+                    counter.classList.remove('text-primary');
+                    counter.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body></html>

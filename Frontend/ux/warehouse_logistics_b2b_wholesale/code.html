@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wholesale Pro | Inventory &amp; Warehouse Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-bright": "#f7f9fb",
+                "on-surface": "#191c1e",
+                "on-primary": "#ffffff",
+                "outline": "#737686",
+                "surface-container": "#eceef0",
+                "secondary-fixed-dim": "#b9c7df",
+                "tertiary": "#943700",
+                "inverse-primary": "#b4c5ff",
+                "surface-container-low": "#f2f4f6",
+                "error": "#ba1a1a",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#3a485b",
+                "on-tertiary-container": "#ffede6",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#bc4800",
+                "on-tertiary-fixed": "#360f00",
+                "on-secondary-fixed": "#0d1c2e",
+                "primary-fixed-dim": "#b4c5ff",
+                "surface-tint": "#0053db",
+                "on-primary-container": "#eeefff",
+                "on-secondary-container": "#57657a",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "on-error": "#ffffff",
+                "surface": "#f7f9fb",
+                "on-primary-fixed": "#00174b",
+                "primary": "#004ac6",
+                "on-error-container": "#93000a",
+                "primary-fixed": "#dbe1ff",
+                "on-primary-fixed-variant": "#003ea8",
+                "primary-container": "#2563eb",
+                "inverse-surface": "#2d3133",
+                "on-surface-variant": "#434655",
+                "surface-container-highest": "#e0e3e5",
+                "secondary-fixed": "#d5e3fc",
+                "secondary-container": "#d5e3fc",
+                "background": "#f7f9fb",
+                "on-secondary": "#ffffff",
+                "secondary": "#515f74",
+                "surface-variant": "#e0e3e5",
+                "tertiary-fixed-dim": "#ffb596",
+                "tertiary-fixed": "#ffdbcd",
+                "on-background": "#191c1e",
+                "surface-dim": "#d8dadc",
+                "outline-variant": "#c3c6d7",
+                "surface-container-high": "#e6e8ea",
+                "inverse-on-surface": "#eff1f3",
+                "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "xl": "32px",
+                "container-margin": "32px",
+                "xs": "4px",
+                "column-gutter": "20px",
+                "unit": "4px",
+                "lg": "24px",
+                "md": "16px",
+                "sm": "8px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "label-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "headline-md": ["Inter"],
+                "title-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-on-surface dark:bg-surface-on-surface flex flex-col h-screen overflow-y-auto border-r border-outline-variant z-50">
+<div class="p-lg flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">B2B Wholesale</h1>
+<p class="font-label-md text-label-md text-on-primary/70">Enterprise Suite</p>
+</div>
+</div>
+<nav class="mt-md flex-grow px-sm">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<!-- ACTIVE TAB: Warehouses -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container border-l-4 border-primary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+<span class="font-body-md text-body-md">Warehouses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-body-md text-body-md">Sales Reps</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="p-sm mt-auto border-t border-outline-variant/20">
+<button class="w-full bg-primary-container text-on-primary py-3 rounded flex items-center justify-center gap-2 font-bold mb-md hover:bg-primary-container/90 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Order
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 px-lg w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40 shadow-sm">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-body-md focus:ring-2 focus:ring-primary" placeholder="Search warehouses, SKUs, or locations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-md">
+<button class="font-label-md text-label-md text-primary font-bold px-4 py-2 hover:bg-surface-container-low rounded transition-colors">Quick Actions</button>
+<button class="bg-primary px-4 py-2 text-on-primary font-label-md text-label-md font-bold rounded flex items-center gap-2 hover:opacity-90 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+                            Sync Data
+                        </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a business manager in a modern office setting. The lighting is soft and even, highlighting a confident expression. The style is clean and professional, using a bright, high-key background consistent with a light-mode B2B enterprise software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCytyKbwos-1Fgaep0VWWN2DDaKpbZoxqrA2x7rXjODNUTqpEDfVMhPZIOAqaXLYffB6NhPd5B9t9xfYQ5iv4cOTxZYscTxRwNXEKV_-gcQMZwPFPU3EW6sJY3YISFhbYxsmGb-mnBbW4IzgzOhazqRkQhVRFj1e2iiJe-R5JTvYvLktRhPdLYF0yalogW5q9NqDNkGAprRupBfOIrTn-8fM0I9UmNd-hVc6nJHwBj_Ye4h7MKOCRTAQS5VjlJGIRUMfvFn1X8Uu8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-lg overflow-y-auto flex-grow space-y-lg">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Warehouse &amp; Inventory</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Real-time cross-location stock monitoring and allocation.</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-2 px-lg py-3 border border-outline-variant rounded-lg font-bold text-secondary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                            Export Data
+                        </button>
+<button class="flex items-center gap-2 px-lg py-3 bg-primary text-on-primary rounded-lg font-bold shadow-lg hover:shadow-primary/20 transition-all">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+                            Transfer Stock
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Main Map Section -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col h-[500px]">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-white">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+<span class="font-title-lg text-title-lg">Global Distribution Map</span>
+</div>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span>3 Active Nodes
+                                </span>
+</div>
+</div>
+<div class="flex-grow relative">
+<div class="absolute inset-0 bg-surface-container-low" data-alt="A clean, minimalist topographical map style graphic showing three distinct warehouse locations in the North, South, and Central regions of a corporate territory. The map uses a soft palette of light grays and subtle blue lines to indicate logistics routes. The overall aesthetic is professional, data-centric, and fits a high-end B2B dashboard." data-location="United States" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBD-euJqyAnShLUOYOjpR51sFnvhJAHPIE2HkxQFjswO7MNHMLjxiadM7NKGu6SEdvWfcBFCUXeBGaRt3nOYQqaTb8ZMqW-tQ_pjrJkxoiTayHjjvNd87_mRRDBI91uZ6nzqTZ6hEu09q4wsbsSDComOIOs3Z322OW85qZ83WvTeRbeoMmwGHl60RUR-BLHxjLR_6Sm8_XsSr1lMCd0Bp4Ll8G9Ysjkf-Om7LJkfjrj7dJJlxn_jVzHNQsQxvf10GxCL4UTeGHwwjs')">
+<!-- Interactive Map Pins (Simulated) -->
+<div class="absolute top-[20%] left-[50%] group cursor-pointer">
+<div class="bg-primary p-2 rounded-full shadow-lg animate-pulse">
+<span class="material-symbols-outlined text-white text-sm" data-icon="warehouse">warehouse</span>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white border border-outline-variant p-3 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<p class="font-bold text-on-surface">North Warehouse</p>
+<p class="text-xs text-on-surface-variant">Capacity: 84% full</p>
+</div>
+</div>
+<div class="absolute top-[70%] left-[60%] group cursor-pointer">
+<div class="bg-primary p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-white text-sm" data-icon="warehouse">warehouse</span>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white border border-outline-variant p-3 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<p class="font-bold text-on-surface">South Warehouse</p>
+<p class="text-xs text-on-surface-variant">Capacity: 42% full</p>
+</div>
+</div>
+<div class="absolute top-[45%] left-[40%] group cursor-pointer">
+<div class="bg-error p-2 rounded-full shadow-lg animate-bounce">
+<span class="material-symbols-outlined text-white text-sm" data-icon="warning">warning</span>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white border border-outline-variant p-3 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<p class="font-bold text-on-surface">Central Warehouse</p>
+<p class="text-xs text-error font-bold">CRITICAL: Low Stock</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Stats Cards -->
+<div class="col-span-12 lg:col-span-4 grid grid-cols-1 gap-lg">
+<!-- Critical Stock Card -->
+<div class="bg-error-container/20 border border-error/20 rounded-xl p-lg flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-error/10 rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="error_outline">error_outline</span>
+</div>
+<span class="bg-error text-on-error px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase">Action Required</span>
+</div>
+<div class="mt-md">
+<h3 class="font-headline-md text-headline-md font-bold text-on-error-container">Restock Urgency</h3>
+<p class="text-body-md text-on-error-container/70">12 items are currently below safety buffer thresholds.</p>
+</div>
+<button class="mt-lg w-full py-3 bg-error text-on-error font-bold rounded-lg hover:bg-error/90 transition-all">Review Low Stock</button>
+</div>
+<!-- General Health Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<h3 class="font-title-lg text-title-lg mb-md">System Health</h3>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Order Fulfillment</span>
+<span class="font-bold text-on-surface">98.2%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 98.2%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md text-on-surface-variant">Inventory Accuracy</span>
+<span class="font-bold text-on-surface">99.5%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full" style="width: 99.5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Warehouse List Section -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Warehouse Status Overview</h3>
+<div class="flex gap-sm">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-2 bg-surface-container-high border border-outline-variant rounded">
+<span class="material-symbols-outlined" data-icon="list">list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Warehouse Name</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Region</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Utilization</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total SKUs</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Last Audit</th>
+<th class="px-lg py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-primary-container/5 transition-colors cursor-pointer group">
+<td class="px-lg py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="north">north</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">North Warehouse</p>
+<p class="text-xs text-on-surface-variant">Chicago Hub #104</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">Northern Territory</td>
+<td class="px-lg py-5">
+<div class="flex items-center gap-2">
+<span class="text-body-md font-bold text-on-surface">84%</span>
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface">4,520</td>
+<td class="px-lg py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-[11px] font-black uppercase">Optimal</span>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">2h ago</td>
+<td class="px-lg py-5 text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors cursor-pointer group">
+<td class="px-lg py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="south">south</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">South Warehouse</p>
+<p class="text-xs text-on-surface-variant">Dallas Center #209</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">Southern Territory</td>
+<td class="px-lg py-5">
+<div class="flex items-center gap-2">
+<span class="text-body-md font-bold text-on-surface">42%</span>
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 42%"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface">2,110</td>
+<td class="px-lg py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 text-[11px] font-black uppercase">Healthy</span>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">4h ago</td>
+<td class="px-lg py-5 text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors cursor-pointer group bg-error/5">
+<td class="px-lg py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-error/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="center_focus_strong">center_focus_strong</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Central Warehouse</p>
+<p class="text-xs text-on-surface-variant">St. Louis Node #003</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">Midwest Region</td>
+<td class="px-lg py-5">
+<div class="flex items-center gap-2">
+<span class="text-body-md font-bold text-error">12%</span>
+<div class="w-24 bg-surface-container rounded-full h-1.5">
+<div class="bg-error h-1.5 rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface">840</td>
+<td class="px-lg py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-error-container text-on-error-container text-[11px] font-black uppercase">Low Stock</span>
+</td>
+<td class="px-lg py-5 text-body-md text-on-surface-variant">Just now</td>
+<td class="px-lg py-5 text-right">
+<button class="p-2 text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Featured Items Needing Restock -->
+<div class="col-span-12 lg:col-span-12">
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Restock Alerts</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Restock Item Card -->
+<div class="bg-white border-2 border-error/10 rounded-xl p-md shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="w-full h-32 bg-surface-container rounded-lg mb-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A studio-lit professional photograph of a high-quality industrial power tool, isolated on a clean white background. The lighting highlights the metallic textures and robust build of the item. The image adheres to a clean, corporate catalog style suitable for a B2B inventory management platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBucBglnIhpavR8eFFkXRccvFs0mpwFDdK5pnW9ku7Z7cZt8qg2Fy2UAVOVOooE97xfwTFbVHYQMiUdXQlVbccw-iPd0CUrbnKpukJTvj9Pf8nA6zSoRzhztT_QA5e57PkFRm9hZaIEDo5Y4aozzMgVXJzGEKg529ipU0pvGy8FiaDCQY_FKgPhT_gRnZA_UhydQSFmYD1cKAQACxTSDbj8pIwLP5FG-HWm3TtHk6T9po88aPCsxpDfsF_5h8_ugafzpU8kxNSgCO0"/>
+</div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">SKU: IND-9203-X</p>
+<h4 class="font-bold text-on-surface mt-1">Titanium Drill Bit Set (12pc)</h4>
+<div class="mt-4 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">CURRENT STOCK</p>
+<p class="text-headline-md font-black text-error">42 units</p>
+</div>
+<button class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-2 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_cart_checkout">shopping_cart_checkout</span>
+</button>
+</div>
+</div>
+<!-- Restock Item Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all cursor-pointer">
+<div class="w-full h-32 bg-surface-container rounded-lg mb-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, industrial product shot of a premium heavy-duty hydraulic jack in high-visibility yellow. Professional studio lighting emphasizes the durability and mechanical precision of the hardware. The aesthetic is modern and professional, fitting perfectly into an enterprise-grade wholesale interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqErGUNndRK8Vr0FFIsjLKNZ667NHY3AEUPjkW6CNyTgDwJ16xsULp95zcAjHuzMGN2nYMA2h1kXvoiKcav5TIwEueHmk9PkvVhqR0T5DprTUgo9aff85DtZw13G6907EGjyTSqVdyMSYDoW7lXNQgR9WyrqhJOY10KS0lU0I6VvdL8_R2uWOk8AZAXYv0N--6L2RkMMW7tvLy7OlbvZqRFnb0FJVLV34BCYcPdl2V9tHJLNcBUPSIjauDR_qTQZCipoTcgsRdmYw"/>
+</div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">SKU: HYD-8822-Y</p>
+<h4 class="font-bold text-on-surface mt-1">Industrial Hydraulic Jack (5 Ton)</h4>
+<div class="mt-4 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">CURRENT STOCK</p>
+<p class="text-headline-md font-black text-on-surface">15 units</p>
+</div>
+<button class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-2 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Restock Item Card 3 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all cursor-pointer">
+<div class="w-full h-32 bg-surface-container rounded-lg mb-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sharp, detailed photograph of a professional-grade digital multimeter with a vibrant backlit display. The device is shown at a three-quarter angle on a neutral surface, showcasing its modern design and clear typography. High-end commercial lighting ensures a crisp, clean look for a B2B warehouse inventory UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlK516nwEPg_h29xLAFhI9JsstL0Pwpv7E4bWGJk0BkSPqkNukdShXTwHVF_ZzgPntSVa382MBCoZPOB-t9wzNYleBQMSO9iPgNEhixu-WcoF_SkQ1vosI7aMNrrY4971IoLMzojs2pbi3Usutw5MVoJCaMXuvlaPUPiwUF5c1EZ_LuobDxQj5rREHBx6YJU_3BJgB72p6d5HroK-Dwf1Y4d1ttfDSZl9Cd9ARKZDIlIc-qu4mVK_05RcNc3B9C9VJuM0rAu9xYaY"/>
+</div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">SKU: ELE-4410-Z</p>
+<h4 class="font-bold text-on-surface mt-1">Digital Smart Multimeter</h4>
+<div class="mt-4 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">CURRENT STOCK</p>
+<p class="text-headline-md font-black text-on-surface">8 units</p>
+</div>
+<button class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-2 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Restock Item Card 4 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-sm hover:border-primary/50 transition-all cursor-pointer">
+<div class="w-full h-32 bg-surface-container rounded-lg mb-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional product image of high-density storage containers for industrial warehouse use. The containers are a sleek slate gray and stacked neatly. Lighting is crisp and bright, focusing on the texture and industrial-grade quality of the material. The style is strictly corporate and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE2IH3XRoWnxD80zclwpFAQ9f2Mhczkfkv4VXqQ5XIqxCmkW0xhREnGSZQ7-n6I4CsFHcd3qJk8iEOz_0-Z-G09xFLok_GLl769pZqR9dF5gZBb1OWqBzocQ0m1G9dXCSIosxO57pGXqXmugXji9AfvzUeUX7Wi0YKSkEKDvh515KPaEeQMIp8FiqBG-OvDlJiCfEPpLQEoVIaU7izbgvJv8rHycNPlM3OEbuSgxpQjA6_l1fMbX8Tu2I688kfhbE3J_3YMsWnFo8"/>
+</div>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">SKU: STR-1122-M</p>
+<h4 class="font-bold text-on-surface mt-1">Stackable Storage Crate (Large)</h4>
+<div class="mt-4 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">CURRENT STOCK</p>
+<p class="text-headline-md font-black text-on-surface">112 units</p>
+</div>
+<button class="bg-surface-container-high hover:bg-primary hover:text-on-primary p-2 rounded transition-all">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Feedback -->
+<div class="pt-xl pb-md border-t border-outline-variant flex justify-between items-center text-on-surface-variant">
+<p class="font-label-md text-label-md">© 2024 Wholesale Pro Enterprise. All warehouse syncs encrypted.</p>
+<div class="flex gap-lg">
+<a class="font-label-md text-label-md hover:text-primary transition-colors" href="#">Data Privacy Policy</a>
+<a class="font-label-md text-label-md hover:text-primary transition-colors" href="#">API Documentation</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay (Simulated) -->
+<div class="fixed inset-0 bg-black/50 z-[100] hidden items-center justify-center backdrop-blur-sm" id="transfer-modal">
+<div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden scale-95 transition-transform duration-300">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">Inventory Transfer</h3>
+<button class="p-2 hover:bg-surface-container rounded-full" onclick="closeModal()"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="p-lg space-y-lg">
+<div class="grid grid-cols-2 gap-lg">
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-outline uppercase">Source Warehouse</label>
+<select class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary">
+<option>North Warehouse (Chicago)</option>
+<option>South Warehouse (Dallas)</option>
+<option>Central Warehouse (St. Louis)</option>
+</select>
+</div>
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-outline uppercase">Destination</label>
+<select class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary">
+<option>Central Warehouse (St. Louis)</option>
+<option>North Warehouse (Chicago)</option>
+<option>South Warehouse (Dallas)</option>
+</select>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-outline uppercase">Product SKU</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary" placeholder="Search product to transfer..." type="text"/>
+</div>
+<div class="space-y-sm">
+<label class="font-label-sm text-label-sm text-outline uppercase">Quantity</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary" type="number" value="50"/>
+</div>
+</div>
+<div class="p-lg bg-surface-container-low flex justify-end gap-md">
+<button class="px-lg py-3 font-bold text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" onclick="closeModal()">Cancel</button>
+<button class="px-lg py-3 bg-primary text-on-primary font-bold rounded-lg hover:shadow-lg transition-all">Execute Transfer</button>
+</div>
+</div>
+</div>
+<script>
+        // Simple Micro-interactions
+        function openModal() {
+            const modal = document.getElementById('transfer-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.querySelector('div').classList.remove('scale-95');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('transfer-modal');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Attach to main action button
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText.includes('Transfer Stock')) {
+                btn.addEventListener('click', openModal);
+            }
+        });
+    </script>
+</body></html>

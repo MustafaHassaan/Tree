@@ -1,0 +1,710 @@
+2026-07-31 01:09:53.365 +03:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-31 01:09:53.513 +03:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2026-07-31 01:09:53.747 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-07-31 01:09:53.808 +03:00 [INF] User profile is available. Using 'C:\Users\Mostafa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-07-31 01:09:53.846 +03:00 [INF] Now listening on: http://localhost:5157
+2026-07-31 01:09:53.849 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-31 01:09:53.850 +03:00 [INF] Hosting environment: Development
+2026-07-31 01:09:53.851 +03:00 [INF] Content root path: C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.API
+2026-07-31 01:10:46.625 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees - null null
+2026-07-31 01:10:46.625 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - null null
+2026-07-31 01:10:46.625 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/customers - null null
+2026-07-31 01:10:46.625 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/products - null null
+2026-07-31 01:10:46.689 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-07-31 01:10:46.692 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.692 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.692 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.692 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.698 +03:00 [INF] HTTP OPTIONS /api/warehouses responded 204 in 13.2445 ms
+2026-07-31 01:10:46.698 +03:00 [INF] HTTP OPTIONS /api/products responded 204 in 9.8286 ms
+2026-07-31 01:10:46.698 +03:00 [INF] HTTP OPTIONS /api/employees responded 204 in 11.8731 ms
+2026-07-31 01:10:46.698 +03:00 [INF] HTTP OPTIONS /api/customers responded 204 in 10.0311 ms
+2026-07-31 01:10:46.713 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/products - 204 null null 90.5041ms
+2026-07-31 01:10:46.714 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - 204 null null 90.5199ms
+2026-07-31 01:10:46.717 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees - 204 null null 94.9872ms
+2026-07-31 01:10:46.720 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/customers - 204 null null 98.152ms
+2026-07-31 01:10:46.731 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:10:46.734 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:10:46.740 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees - null null
+2026-07-31 01:10:46.747 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:10:46.762 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.762 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.763 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.770 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:46.942 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:46.942 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:46.942 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:46.942 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:46.973 +03:00 [INF] Route matched with {action = "GetAll", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Employee]]] GetAll() on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:10:46.973 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:10:46.973 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:10:46.973 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:10:46.987 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-31 01:10:47.179 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+2026-07-31 01:10:47.280 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Employee, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:47.392 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API) in 409.7449ms
+2026-07-31 01:10:47.395 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:47.398 +03:00 [INF] HTTP GET /api/employees responded 200 in 635.1444 ms
+2026-07-31 01:10:47.405 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees - 200 null application/json; charset=utf-8 664.8622ms
+2026-07-31 01:10:47.703 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:10:47.707 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:10:47.724 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:47.732 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 750.5895ms
+2026-07-31 01:10:47.733 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:47.735 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:47.741 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 980.3558 ms
+2026-07-31 01:10:47.743 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 756.83ms
+2026-07-31 01:10:47.746 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 1015.4552ms
+2026-07-31 01:10:47.748 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:47.756 +03:00 [INF] HTTP GET /api/customers responded 200 in 986.6457 ms
+2026-07-31 01:10:47.761 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 1014.822ms
+2026-07-31 01:10:48.222 +03:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:10:48.262 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:48.269 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 1277.7355ms
+2026-07-31 01:10:48.272 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:48.273 +03:00 [INF] HTTP GET /api/products responded 200 in 1511.8249 ms
+2026-07-31 01:10:48.275 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 1541.23ms
+2026-07-31 01:10:50.658 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:10:50.664 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:50.666 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/categories - null null
+2026-07-31 01:10:50.670 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:50.671 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:50.673 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:10:50.673 +03:00 [INF] HTTP OPTIONS /api/categories responded 204 in 2.5170 ms
+2026-07-31 01:10:50.680 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/categories - 204 null null 13.6753ms
+2026-07-31 01:10:50.686 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/categories - null null
+2026-07-31 01:10:50.691 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:50.693 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:50.701 +03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Category]]] GetAll() on controller Tradeflow.API.Controllers.CategoriesController (Tradeflow.API).
+2026-07-31 01:10:50.862 +03:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:10:50.862 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:10:50.890 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:50.898 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 222.2879ms
+2026-07-31 01:10:50.902 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:50.904 +03:00 [INF] HTTP GET /api/products responded 200 in 240.0976 ms
+2026-07-31 01:10:50.905 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Category, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:50.910 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 252.5679ms
+2026-07-31 01:10:50.916 +03:00 [INF] Executed action Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API) in 206.7257ms
+2026-07-31 01:10:50.923 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:50.926 +03:00 [INF] HTTP GET /api/categories responded 200 in 234.8020 ms
+2026-07-31 01:10:50.929 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/categories - 200 null application/json; charset=utf-8 243.1925ms
+2026-07-31 01:10:54.150 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - null null
+2026-07-31 01:10:54.161 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:54.164 +03:00 [INF] HTTP OPTIONS /api/warehouses responded 204 in 3.0508 ms
+2026-07-31 01:10:54.169 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - 204 null null 18.5138ms
+2026-07-31 01:10:54.175 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:10:54.183 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:54.185 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:54.191 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:10:54.284 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:10:54.291 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:54.297 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 99.5874ms
+2026-07-31 01:10:54.301 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:54.303 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 119.9442 ms
+2026-07-31 01:10:54.309 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 133.5522ms
+2026-07-31 01:10:55.395 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/customers - null null
+2026-07-31 01:10:55.400 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:55.402 +03:00 [INF] HTTP OPTIONS /api/customers responded 204 in 1.6648 ms
+2026-07-31 01:10:55.405 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/customers - 204 null null 9.9498ms
+2026-07-31 01:10:55.413 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:10:55.418 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:55.421 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:55.423 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:10:55.511 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:10:55.517 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:55.522 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 95.3959ms
+2026-07-31 01:10:55.528 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:55.532 +03:00 [INF] HTTP GET /api/customers responded 200 in 113.8087 ms
+2026-07-31 01:10:55.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 121.371ms
+2026-07-31 01:10:56.999 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees - null null
+2026-07-31 01:10:57.005 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.007 +03:00 [INF] HTTP OPTIONS /api/employees responded 204 in 1.9763 ms
+2026-07-31 01:10:57.009 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees - 204 null null 10.0743ms
+2026-07-31 01:10:57.019 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees - null null
+2026-07-31 01:10:57.023 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.025 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:57.027 +03:00 [INF] Route matched with {action = "GetAll", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Employee]]] GetAll() on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:10:57.117 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+2026-07-31 01:10:57.123 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Employee, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:57.128 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API) in 96.6078ms
+2026-07-31 01:10:57.134 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:57.138 +03:00 [INF] HTTP GET /api/employees responded 200 in 114.9733 ms
+2026-07-31 01:10:57.149 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees - 200 null application/json; charset=utf-8 129.9307ms
+2026-07-31 01:10:57.155 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees/2/performance - null null
+2026-07-31 01:10:57.158 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees/1/performance - null null
+2026-07-31 01:10:57.164 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.167 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.168 +03:00 [INF] HTTP OPTIONS /api/employees/2/performance responded 204 in 4.5164 ms
+2026-07-31 01:10:57.170 +03:00 [INF] HTTP OPTIONS /api/employees/1/performance responded 204 in 2.2951 ms
+2026-07-31 01:10:57.177 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees/2/performance - 204 null null 21.3715ms
+2026-07-31 01:10:57.181 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees/1/performance - 204 null null 23.7053ms
+2026-07-31 01:10:57.186 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees/2/performance - null null
+2026-07-31 01:10:57.190 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees/1/performance - null null
+2026-07-31 01:10:57.192 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.194 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:57.196 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:10:57.197 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:10:57.209 +03:00 [INF] Route matched with {action = "GetSalesRepPerformance", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Tradeflow.Application.Queries.SalesRepPerformanceDto]] GetSalesRepPerformance(Int32) on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:10:57.209 +03:00 [INF] Route matched with {action = "GetSalesRepPerformance", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Tradeflow.Application.Queries.SalesRepPerformanceDto]] GetSalesRepPerformance(Int32) on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:10:57.416 +03:00 [INF] Executed DbCommand (107ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+WHERE [e].[Id] = @__p_0
+2026-07-31 01:10:57.427 +03:00 [INF] Executed DbCommand (122ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+WHERE [e].[Id] = @__p_0
+2026-07-31 01:10:57.522 +03:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:10:57.525 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:10:57.675 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Notes], [c].[Percentage], [c].[TargetAmount]
+FROM [Commissions] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-07-31 01:10:57.679 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Notes], [c].[Percentage], [c].[TargetAmount]
+FROM [Commissions] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-07-31 01:10:57.713 +03:00 [INF] Executing OkObjectResult, writing value of type 'Tradeflow.Application.Queries.SalesRepPerformanceDto'.
+2026-07-31 01:10:57.713 +03:00 [INF] Executing OkObjectResult, writing value of type 'Tradeflow.Application.Queries.SalesRepPerformanceDto'.
+2026-07-31 01:10:57.744 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API) in 529.7656ms
+2026-07-31 01:10:57.744 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API) in 532.5374ms
+2026-07-31 01:10:57.780 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:10:57.802 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:10:57.807 +03:00 [INF] HTTP GET /api/employees/2/performance responded 200 in 615.2623 ms
+2026-07-31 01:10:57.838 +03:00 [INF] HTTP GET /api/employees/1/performance responded 200 in 643.4459 ms
+2026-07-31 01:10:57.842 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees/2/performance - 200 null application/json; charset=utf-8 656.4434ms
+2026-07-31 01:10:57.844 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees/1/performance - 200 null application/json; charset=utf-8 654.8218ms
+2026-07-31 01:10:58.708 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:10:58.713 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:10:58.717 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:58.724 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:58.726 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:58.727 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:58.729 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:10:58.731 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:10:58.820 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:10:58.821 +03:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:10:58.825 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:58.831 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:58.834 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 99.4593ms
+2026-07-31 01:10:58.836 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 98.4902ms
+2026-07-31 01:10:58.838 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:58.840 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:10:58.841 +03:00 [INF] HTTP GET /api/customers responded 200 in 124.2720 ms
+2026-07-31 01:10:58.842 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 117.8457 ms
+2026-07-31 01:10:58.847 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 139.3503ms
+2026-07-31 01:10:58.849 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 136.2858ms
+2026-07-31 01:10:58.857 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses/1/products - null null
+2026-07-31 01:10:58.862 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:58.864 +03:00 [INF] HTTP OPTIONS /api/warehouses/1/products responded 204 in 2.4030 ms
+2026-07-31 01:10:58.866 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses/1/products - 204 null null 8.9372ms
+2026-07-31 01:10:58.871 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses/1/products - null null
+2026-07-31 01:10:58.874 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:58.875 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API)'
+2026-07-31 01:10:58.882 +03:00 [INF] Route matched with {action = "GetProductsByWarehouse", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Application.Queries.ProductStockDto]]] GetProductsByWarehouse(Int32) on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:10:58.980 +03:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[ProductId], [s].[WarehouseId], [s].[Quantity]
+FROM [Stocks] AS [s]
+2026-07-31 01:10:59.088 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:10:59.181 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:10:59.213 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Application.Queries.ProductStockDto, Tradeflow.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:59.224 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API) in 340.464ms
+2026-07-31 01:10:59.227 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API)'
+2026-07-31 01:10:59.229 +03:00 [INF] HTTP GET /api/warehouses/1/products responded 200 in 355.2704 ms
+2026-07-31 01:10:59.233 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses/1/products - 200 null application/json; charset=utf-8 362.4814ms
+2026-07-31 01:10:59.243 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/orders - null null
+2026-07-31 01:10:59.247 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:59.248 +03:00 [INF] HTTP OPTIONS /api/orders responded 204 in 1.2754 ms
+2026-07-31 01:10:59.251 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/orders - 204 null null 8.046ms
+2026-07-31 01:10:59.256 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/orders - null null
+2026-07-31 01:10:59.259 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:10:59.260 +03:00 [INF] Executing endpoint 'OrdersController.GetAllOrders (Tradeflow.API)'
+2026-07-31 01:10:59.264 +03:00 [INF] Route matched with {action = "GetAllOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Application.Queries.OrderDto]]] GetAllOrders() on controller OrdersController (Tradeflow.API).
+2026-07-31 01:10:59.363 +03:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:10:59.449 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:10:59.533 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:10:59.637 +03:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[OrderId], [o].[ProductId], [o].[Quantity], [o].[TotalPrice], [o].[UnitPrice]
+FROM [OrderDetails] AS [o]
+2026-07-31 01:10:59.661 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Application.Queries.OrderDto, Tradeflow.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:10:59.671 +03:00 [INF] Executed action OrdersController.GetAllOrders (Tradeflow.API) in 404.4471ms
+2026-07-31 01:10:59.676 +03:00 [INF] Executed endpoint 'OrdersController.GetAllOrders (Tradeflow.API)'
+2026-07-31 01:10:59.680 +03:00 [INF] HTTP GET /api/orders responded 200 in 421.0230 ms
+2026-07-31 01:10:59.685 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/orders - 200 null application/json; charset=utf-8 428.4111ms
+2026-07-31 01:14:35.781 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/products - null null
+2026-07-31 01:14:35.787 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.789 +03:00 [INF] HTTP OPTIONS /api/products responded 204 in 2.3012 ms
+2026-07-31 01:14:35.791 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - null null
+2026-07-31 01:14:35.791 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/customers - null null
+2026-07-31 01:14:35.794 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees - null null
+2026-07-31 01:14:35.794 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/products - 204 null null 13.0211ms
+2026-07-31 01:14:35.799 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.802 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.810 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.815 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:14:35.816 +03:00 [INF] HTTP OPTIONS /api/warehouses responded 204 in 16.9999 ms
+2026-07-31 01:14:35.817 +03:00 [INF] HTTP OPTIONS /api/customers responded 204 in 14.8795 ms
+2026-07-31 01:14:35.818 +03:00 [INF] HTTP OPTIONS /api/employees responded 204 in 8.3483 ms
+2026-07-31 01:14:35.824 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.828 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - 204 null null 37.3799ms
+2026-07-31 01:14:35.832 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/customers - 204 null null 40.5321ms
+2026-07-31 01:14:35.834 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees - 204 null null 40.7072ms
+2026-07-31 01:14:35.836 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:35.840 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:14:35.847 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:14:35.854 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees - null null
+2026-07-31 01:14:35.856 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:14:35.861 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.870 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.874 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:35.881 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:35.884 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:35.885 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:35.887 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:14:35.889 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:14:35.891 +03:00 [INF] Route matched with {action = "GetAll", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Employee]]] GetAll() on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:14:35.961 +03:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:14:35.967 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:14:35.971 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 92.8017ms
+2026-07-31 01:14:35.975 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:35.978 +03:00 [INF] HTTP GET /api/products responded 200 in 153.9481 ms
+2026-07-31 01:14:35.979 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:14:35.979 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:14:35.983 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 167.9606ms
+2026-07-31 01:14:35.987 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:14:35.991 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:14:36.000 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 104.8854ms
+2026-07-31 01:14:36.004 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 105.3191ms
+2026-07-31 01:14:36.006 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:36.008 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:36.010 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 149.3174 ms
+2026-07-31 01:14:36.013 +03:00 [INF] HTTP GET /api/customers responded 200 in 142.9778 ms
+2026-07-31 01:14:36.017 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 176.5166ms
+2026-07-31 01:14:36.020 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 172.7514ms
+2026-07-31 01:14:36.544 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+2026-07-31 01:14:36.548 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Employee, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:14:36.552 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API) in 649.0195ms
+2026-07-31 01:14:36.556 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:14:36.557 +03:00 [INF] HTTP GET /api/employees responded 200 in 683.1239 ms
+2026-07-31 01:14:36.562 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees - 200 null application/json; charset=utf-8 707.7456ms
+2026-07-31 01:14:43.633 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/dashboard - null null
+2026-07-31 01:14:43.637 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:43.638 +03:00 [INF] HTTP OPTIONS /api/dashboard responded 204 in 1.0578 ms
+2026-07-31 01:14:43.640 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/dashboard - 204 null null 6.2327ms
+2026-07-31 01:14:43.643 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/dashboard - null null
+2026-07-31 01:14:43.645 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:43.646 +03:00 [INF] HTTP GET /api/dashboard responded 404 in 1.2316 ms
+2026-07-31 01:14:43.648 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/dashboard - 404 0 null 4.9286ms
+2026-07-31 01:14:43.652 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5157/api/dashboard, Response status code: 404
+2026-07-31 01:14:47.901 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/dashboard - null null
+2026-07-31 01:14:47.907 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:14:47.908 +03:00 [INF] HTTP GET /api/dashboard responded 404 in 1.1393 ms
+2026-07-31 01:14:47.910 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/dashboard - 404 0 null 8.5231ms
+2026-07-31 01:14:47.915 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5157/api/dashboard, Response status code: 404
+2026-07-31 01:15:32.780 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/products - null null
+2026-07-31 01:15:32.786 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/categories - null null
+2026-07-31 01:15:32.786 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:32.791 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:32.793 +03:00 [INF] HTTP OPTIONS /api/products responded 204 in 6.5414 ms
+2026-07-31 01:15:32.794 +03:00 [INF] HTTP OPTIONS /api/categories responded 204 in 2.6363 ms
+2026-07-31 01:15:32.797 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/products - 204 null null 16.8434ms
+2026-07-31 01:15:32.800 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/categories - 204 null null 14.0216ms
+2026-07-31 01:15:32.809 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/categories - null null
+2026-07-31 01:15:32.812 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:15:32.817 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:32.820 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:32.822 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:32.824 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:32.826 +03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Category]]] GetAll() on controller Tradeflow.API.Controllers.CategoriesController (Tradeflow.API).
+2026-07-31 01:15:32.829 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:15:32.922 +03:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:15:32.922 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:15:32.926 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Category, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:32.932 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:32.935 +03:00 [INF] Executed action Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API) in 101.5996ms
+2026-07-31 01:15:32.937 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 99.8862ms
+2026-07-31 01:15:32.939 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:32.942 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:32.944 +03:00 [INF] HTTP GET /api/categories responded 200 in 126.9137 ms
+2026-07-31 01:15:32.946 +03:00 [INF] HTTP GET /api/products responded 200 in 125.7684 ms
+2026-07-31 01:15:32.951 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/categories - 200 null application/json; charset=utf-8 141.7514ms
+2026-07-31 01:15:32.954 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 141.9268ms
+2026-07-31 01:15:35.029 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - null null
+2026-07-31 01:15:35.034 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:35.035 +03:00 [INF] HTTP OPTIONS /api/warehouses responded 204 in 1.6130 ms
+2026-07-31 01:15:35.038 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses - 204 null null 9.5897ms
+2026-07-31 01:15:35.047 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:15:35.052 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:35.054 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:35.055 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:15:35.146 +03:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:15:35.148 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:35.150 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 92.1384ms
+2026-07-31 01:15:35.152 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:35.154 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 102.2504 ms
+2026-07-31 01:15:35.156 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 108.7049ms
+2026-07-31 01:15:36.514 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/customers - null null
+2026-07-31 01:15:36.523 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:36.526 +03:00 [INF] HTTP OPTIONS /api/customers responded 204 in 2.7556 ms
+2026-07-31 01:15:36.530 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/customers - 204 null null 15.813ms
+2026-07-31 01:15:36.535 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:15:36.540 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:36.543 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:36.545 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:15:36.651 +03:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:15:36.654 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:36.657 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 107.1365ms
+2026-07-31 01:15:36.660 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:36.661 +03:00 [INF] HTTP GET /api/customers responded 200 in 121.5438 ms
+2026-07-31 01:15:36.666 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 130.2999ms
+2026-07-31 01:15:37.703 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees - null null
+2026-07-31 01:15:37.707 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.709 +03:00 [INF] HTTP OPTIONS /api/employees responded 204 in 1.9260 ms
+2026-07-31 01:15:37.712 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees - 204 null null 9.3365ms
+2026-07-31 01:15:37.720 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees - null null
+2026-07-31 01:15:37.725 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.726 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:37.728 +03:00 [INF] Route matched with {action = "GetAll", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Employee]]] GetAll() on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:15:37.813 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+2026-07-31 01:15:37.822 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Employee, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:37.826 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API) in 94.5993ms
+2026-07-31 01:15:37.831 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:37.835 +03:00 [INF] HTTP GET /api/employees responded 200 in 109.7819 ms
+2026-07-31 01:15:37.840 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees - 200 null application/json; charset=utf-8 119.6039ms
+2026-07-31 01:15:37.845 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees/2/performance - null null
+2026-07-31 01:15:37.846 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/employees/1/performance - null null
+2026-07-31 01:15:37.854 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.862 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.865 +03:00 [INF] HTTP OPTIONS /api/employees/2/performance responded 204 in 10.5021 ms
+2026-07-31 01:15:37.867 +03:00 [INF] HTTP OPTIONS /api/employees/1/performance responded 204 in 5.4509 ms
+2026-07-31 01:15:37.871 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees/2/performance - 204 null null 26.1446ms
+2026-07-31 01:15:37.876 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/employees/1/performance - 204 null null 29.881ms
+2026-07-31 01:15:37.885 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees/2/performance - null null
+2026-07-31 01:15:37.890 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/employees/1/performance - null null
+2026-07-31 01:15:37.897 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.902 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:37.903 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:15:37.905 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:15:37.907 +03:00 [INF] Route matched with {action = "GetSalesRepPerformance", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Tradeflow.Application.Queries.SalesRepPerformanceDto]] GetSalesRepPerformance(Int32) on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:15:37.909 +03:00 [INF] Route matched with {action = "GetSalesRepPerformance", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Tradeflow.Application.Queries.SalesRepPerformanceDto]] GetSalesRepPerformance(Int32) on controller Tradeflow.API.Controllers.EmployeesController (Tradeflow.API).
+2026-07-31 01:15:37.997 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+WHERE [e].[Id] = @__p_0
+2026-07-31 01:15:38.004 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CommissionId], [e].[Name], [e].[PasswordHash], [e].[Phone], [e].[Role]
+FROM [Employees] AS [e]
+WHERE [e].[Id] = @__p_0
+2026-07-31 01:15:38.082 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:15:38.092 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:15:38.176 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Notes], [c].[Percentage], [c].[TargetAmount]
+FROM [Commissions] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-07-31 01:15:38.181 +03:00 [INF] Executing OkObjectResult, writing value of type 'Tradeflow.Application.Queries.SalesRepPerformanceDto'.
+2026-07-31 01:15:38.185 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API) in 270.7374ms
+2026-07-31 01:15:38.186 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Notes], [c].[Percentage], [c].[TargetAmount]
+FROM [Commissions] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-07-31 01:15:38.187 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:15:38.190 +03:00 [INF] Executing OkObjectResult, writing value of type 'Tradeflow.Application.Queries.SalesRepPerformanceDto'.
+2026-07-31 01:15:38.192 +03:00 [INF] HTTP GET /api/employees/2/performance responded 200 in 294.8908 ms
+2026-07-31 01:15:38.194 +03:00 [INF] Executed action Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API) in 276.2891ms
+2026-07-31 01:15:38.197 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees/2/performance - 200 null application/json; charset=utf-8 312.7267ms
+2026-07-31 01:15:38.200 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.EmployeesController.GetSalesRepPerformance (Tradeflow.API)'
+2026-07-31 01:15:38.208 +03:00 [INF] HTTP GET /api/employees/1/performance responded 200 in 306.0528 ms
+2026-07-31 01:15:38.211 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/employees/1/performance - 200 null application/json; charset=utf-8 320.2461ms
+2026-07-31 01:15:39.100 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/customers - null null
+2026-07-31 01:15:39.104 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses - null null
+2026-07-31 01:15:39.107 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.112 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.114 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:39.115 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:39.116 +03:00 [INF] Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Customer]]] GetAll() on controller Tradeflow.API.Controllers.CustomersController (Tradeflow.API).
+2026-07-31 01:15:39.118 +03:00 [INF] Route matched with {action = "GetAll", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Warehouse]]] GetAll() on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:15:39.222 +03:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:15:39.222 +03:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:15:39.230 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Warehouse, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:39.236 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Customer, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:39.241 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API) in 117.1591ms
+2026-07-31 01:15:39.245 +03:00 [INF] Executed action Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API) in 124.3345ms
+2026-07-31 01:15:39.250 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:39.256 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CustomersController.GetAll (Tradeflow.API)'
+2026-07-31 01:15:39.259 +03:00 [INF] HTTP GET /api/warehouses responded 200 in 147.2702 ms
+2026-07-31 01:15:39.262 +03:00 [INF] HTTP GET /api/customers responded 200 in 155.2938 ms
+2026-07-31 01:15:39.268 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses - 200 null application/json; charset=utf-8 164.7164ms
+2026-07-31 01:15:39.272 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/customers - 200 null application/json; charset=utf-8 172.0869ms
+2026-07-31 01:15:39.285 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses/1/products - null null
+2026-07-31 01:15:39.288 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.289 +03:00 [INF] HTTP OPTIONS /api/warehouses/1/products responded 204 in 0.8712 ms
+2026-07-31 01:15:39.291 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/warehouses/1/products - 204 null null 6.6202ms
+2026-07-31 01:15:39.297 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/warehouses/1/products - null null
+2026-07-31 01:15:39.300 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.302 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API)'
+2026-07-31 01:15:39.303 +03:00 [INF] Route matched with {action = "GetProductsByWarehouse", controller = "Warehouses"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Application.Queries.ProductStockDto]]] GetProductsByWarehouse(Int32) on controller Tradeflow.API.Controllers.WarehousesController (Tradeflow.API).
+2026-07-31 01:15:39.390 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[ProductId], [s].[WarehouseId], [s].[Quantity]
+FROM [Stocks] AS [s]
+2026-07-31 01:15:39.499 +03:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:15:39.602 +03:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:15:39.608 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Application.Queries.ProductStockDto, Tradeflow.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:39.611 +03:00 [INF] Executed action Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API) in 306.3948ms
+2026-07-31 01:15:39.615 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.WarehousesController.GetProductsByWarehouse (Tradeflow.API)'
+2026-07-31 01:15:39.621 +03:00 [INF] HTTP GET /api/warehouses/1/products responded 200 in 320.6481 ms
+2026-07-31 01:15:39.627 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/warehouses/1/products - 200 null application/json; charset=utf-8 329.7857ms
+2026-07-31 01:15:39.643 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/orders - null null
+2026-07-31 01:15:39.650 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.652 +03:00 [INF] HTTP OPTIONS /api/orders responded 204 in 2.6541 ms
+2026-07-31 01:15:39.658 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/orders - 204 null null 14.6617ms
+2026-07-31 01:15:39.678 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/orders - null null
+2026-07-31 01:15:39.686 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:15:39.688 +03:00 [INF] Executing endpoint 'OrdersController.GetAllOrders (Tradeflow.API)'
+2026-07-31 01:15:39.689 +03:00 [INF] Route matched with {action = "GetAllOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Application.Queries.OrderDto]]] GetAllOrders() on controller OrdersController (Tradeflow.API).
+2026-07-31 01:15:39.780 +03:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreatedAt], [o].[CustomerId], [o].[SalesRepId], [o].[Status], [o].[TotalAmount], [o].[WarehouseId]
+FROM [Orders] AS [o]
+2026-07-31 01:15:39.869 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[Name], [c].[Phone], [c].[Type]
+FROM [Customers] AS [c]
+2026-07-31 01:15:39.962 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [w].[Id], [w].[Location], [w].[Name]
+FROM [Warehouses] AS [w]
+2026-07-31 01:15:40.053 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[OrderId], [o].[ProductId], [o].[Quantity], [o].[TotalPrice], [o].[UnitPrice]
+FROM [OrderDetails] AS [o]
+2026-07-31 01:15:40.076 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Application.Queries.OrderDto, Tradeflow.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:15:40.078 +03:00 [INF] Executed action OrdersController.GetAllOrders (Tradeflow.API) in 387.9367ms
+2026-07-31 01:15:40.082 +03:00 [INF] Executed endpoint 'OrdersController.GetAllOrders (Tradeflow.API)'
+2026-07-31 01:15:40.084 +03:00 [INF] HTTP GET /api/orders responded 200 in 397.7542 ms
+2026-07-31 01:15:40.086 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/orders - 200 null application/json; charset=utf-8 408.2459ms
+2026-07-31 01:20:14.083 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/dashboard - null null
+2026-07-31 01:20:14.088 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:14.090 +03:00 [INF] HTTP OPTIONS /api/dashboard responded 204 in 1.8120 ms
+2026-07-31 01:20:14.092 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/dashboard - 204 null null 9.1426ms
+2026-07-31 01:20:14.113 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/dashboard - null null
+2026-07-31 01:20:14.119 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:14.122 +03:00 [INF] HTTP GET /api/dashboard responded 404 in 2.5782 ms
+2026-07-31 01:20:14.126 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/dashboard - 404 0 null 12.7531ms
+2026-07-31 01:20:14.132 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5157/api/dashboard, Response status code: 404
+2026-07-31 01:20:16.600 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/products - null null
+2026-07-31 01:20:16.608 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:16.608 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/categories - null null
+2026-07-31 01:20:16.609 +03:00 [INF] HTTP OPTIONS /api/products responded 204 in 1.2211 ms
+2026-07-31 01:20:16.613 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:16.615 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/products - 204 null null 14.9066ms
+2026-07-31 01:20:16.616 +03:00 [INF] HTTP OPTIONS /api/categories responded 204 in 3.6150 ms
+2026-07-31 01:20:16.621 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:20:16.624 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/categories - 204 null null 16.1592ms
+2026-07-31 01:20:16.628 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:16.631 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/categories - null null
+2026-07-31 01:20:16.633 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:16.638 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:16.639 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:20:16.641 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:16.644 +03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Category]]] GetAll() on controller Tradeflow.API.Controllers.CategoriesController (Tradeflow.API).
+2026-07-31 01:20:17.250 +03:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:20:17.258 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:20:17.261 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 618.6612ms
+2026-07-31 01:20:17.266 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:17.270 +03:00 [INF] HTTP GET /api/products responded 200 in 641.8896 ms
+2026-07-31 01:20:17.277 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 656.0242ms
+2026-07-31 01:20:17.786 +03:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:20:17.794 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Category, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:20:17.797 +03:00 [INF] Executed action Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API) in 1151.1226ms
+2026-07-31 01:20:17.801 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:17.805 +03:00 [INF] HTTP GET /api/categories responded 200 in 1167.4765 ms
+2026-07-31 01:20:17.810 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/categories - 200 null application/json; charset=utf-8 1179.1646ms
+2026-07-31 01:20:24.723 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/products - null null
+2026-07-31 01:20:24.724 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5157/api/categories - null null
+2026-07-31 01:20:24.727 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:24.731 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:24.732 +03:00 [INF] HTTP OPTIONS /api/products responded 204 in 5.3331 ms
+2026-07-31 01:20:24.734 +03:00 [INF] HTTP OPTIONS /api/categories responded 204 in 2.6333 ms
+2026-07-31 01:20:24.737 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/products - 204 null null 13.7855ms
+2026-07-31 01:20:24.739 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5157/api/categories - 204 null null 15.5519ms
+2026-07-31 01:20:24.744 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/products - null null
+2026-07-31 01:20:24.748 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/categories - null null
+2026-07-31 01:20:24.751 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:24.755 +03:00 [INF] CORS policy execution successful.
+2026-07-31 01:20:24.756 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:24.758 +03:00 [INF] Executing endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:24.759 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Product]]] GetAll() on controller Tradeflow.API.Controllers.ProductsController (Tradeflow.API).
+2026-07-31 01:20:24.760 +03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Tradeflow.Domain.Entities.Category]]] GetAll() on controller Tradeflow.API.Controllers.CategoriesController (Tradeflow.API).
+2026-07-31 01:20:24.861 +03:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-07-31 01:20:24.861 +03:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Barcode], [p].[CategoryId], [p].[Cost], [p].[IsDeleted], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] = CAST(0 AS bit)
+2026-07-31 01:20:24.864 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Category, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:20:24.868 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Tradeflow.Domain.Entities.Product, Tradeflow.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-31 01:20:24.871 +03:00 [INF] Executed action Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API) in 107.7868ms
+2026-07-31 01:20:24.873 +03:00 [INF] Executed action Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API) in 111.5297ms
+2026-07-31 01:20:24.875 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.CategoriesController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:24.877 +03:00 [INF] Executed endpoint 'Tradeflow.API.Controllers.ProductsController.GetAll (Tradeflow.API)'
+2026-07-31 01:20:24.880 +03:00 [INF] HTTP GET /api/categories responded 200 in 124.4815 ms
+2026-07-31 01:20:24.882 +03:00 [INF] HTTP GET /api/products responded 200 in 130.6311 ms
+2026-07-31 01:20:24.888 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/categories - 200 null application/json; charset=utf-8 139.0477ms
+2026-07-31 01:20:24.893 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/products - 200 null application/json; charset=utf-8 148.737ms
+2026-07-31 14:23:47.035 +03:00 [INF] Executed DbCommand (127ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-31 14:23:47.372 +03:00 [INF] Executed DbCommand (233ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2026-07-31 14:23:47.893 +03:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-07-31 14:23:48.074 +03:00 [INF] User profile is available. Using 'C:\Users\Mostafa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-07-31 14:23:48.580 +03:00 [INF] Now listening on: http://localhost:5157
+2026-07-31 14:23:48.585 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-31 14:23:48.586 +03:00 [INF] Hosting environment: Development
+2026-07-31 14:23:48.586 +03:00 [INF] Content root path: C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.API
+2026-07-31 14:24:32.198 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/ - null null
+2026-07-31 14:24:32.262 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/ - 301 0 null 66.9449ms
+2026-07-31 14:24:32.271 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/index.html - null null
+2026-07-31 14:24:32.358 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/index.html - 200 null text/html;charset=utf-8 86.8802ms
+2026-07-31 14:24:32.432 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/index.css - null null
+2026-07-31 14:24:32.432 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger-ui.css - null null
+2026-07-31 14:24:32.439 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger-ui-standalone-preset.js - null null
+2026-07-31 14:24:32.439 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger-ui-bundle.js - null null
+2026-07-31 14:24:32.440 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/index.js - null null
+2026-07-31 14:24:32.440 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/index.js - 200 null application/javascript;charset=utf-8 0.7404ms
+2026-07-31 14:24:32.450 +03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2026-07-31 14:24:32.450 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/index.css - 200 202 text/css 18.0209ms
+2026-07-31 14:24:32.453 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-07-31 14:24:32.453 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-07-31 14:24:32.455 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger-ui-standalone-preset.js - 200 230293 text/javascript 16.1401ms
+2026-07-31 14:24:32.455 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger-ui.css - 200 152034 text/css 22.9067ms
+2026-07-31 14:24:32.462 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-07-31 14:24:32.463 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger-ui-bundle.js - 200 1452753 text/javascript 23.6126ms
+2026-07-31 14:24:32.921 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger/v1/swagger.json - null null
+2026-07-31 14:24:32.963 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/favicon-32x32.png - null null
+2026-07-31 14:24:32.964 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-07-31 14:24:32.964 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/favicon-32x32.png - 200 628 image/png 1.0848ms
+2026-07-31 14:24:33.662 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 741.3002ms
+2026-07-31 14:24:35.926 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/index.js - null null
+2026-07-31 14:24:35.927 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/index.js - 200 null application/javascript;charset=utf-8 1.1574ms
+2026-07-31 14:24:36.146 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger-ui-standalone-preset.js - null null
+2026-07-31 14:24:36.147 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-07-31 14:24:36.148 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger-ui-standalone-preset.js - 200 230293 text/javascript 1.95ms
+2026-07-31 14:24:36.150 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/swagger-ui-bundle.js - null null
+2026-07-31 14:24:36.160 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-07-31 14:24:36.160 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/swagger-ui-bundle.js - 200 1452753 text/javascript 9.508ms

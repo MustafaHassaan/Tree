@@ -1,0 +1,11 @@
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\bin\Release\net9.0\Tradeflow.Domain.deps.json
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\bin\Release\net9.0\Tradeflow.Domain.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\bin\Release\net9.0\Tradeflow.Domain.pdb
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.AssemblyInfoInputs.cache
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.AssemblyInfo.cs
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\refint\Tradeflow.Domain.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\Tradeflow.Domain.pdb
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Domain\obj\Release\net9.0\ref\Tradeflow.Domain.dll

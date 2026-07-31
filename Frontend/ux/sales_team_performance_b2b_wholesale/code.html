@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Performance Dashboard | Wholesale Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "outline": "#737686",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary": "#943700",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "on-primary-container": "#eeefff",
+                    "on-secondary-container": "#57657a",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-error": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004ac6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "inverse-surface": "#2d3133",
+                    "on-surface-variant": "#434655",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#515f74",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "32px",
+                    "xs": "4px",
+                    "column-gutter": "20px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .gauge-svg { transform: rotate(-90deg); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-on-surface dark:bg-surface-on-surface border-r border-outline-variant flex flex-col h-screen overflow-y-auto z-[60] text-on-primary">
+<div class="p-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">B2B Wholesale</h1>
+<p class="font-label-md text-label-md opacity-70">Enterprise Suite</p>
+</div>
+<nav class="flex-1 px-sm">
+<div class="space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Products
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+                    Warehouses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+                    Customers
+                </a>
+<!-- Active: Sales Reps -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container border-l-4 border-primary font-bold font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+                    Sales Reps
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+                    Orders
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors font-body-md text-body-md rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Reports
+                </a>
+</div>
+</nav>
+<div class="p-lg mt-auto border-t border-outline-variant/20">
+<button class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mb-4 hover:opacity-90 transition-opacity">
+                New Order
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center h-16 px-lg w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-lg">
+<span class="font-title-lg text-title-lg font-black text-on-surface">Wholesale Pro</span>
+<div class="relative ml-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary focus:outline-none w-64 text-body-md" placeholder="Search representatives or data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                    Sync Data
+                </button>
+<div class="flex items-center gap-sm px-2">
+<span class="material-symbols-outlined cursor-pointer text-outline hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer text-outline hover:text-primary transition-colors">history</span>
+<span class="material-symbols-outlined cursor-pointer text-outline hover:text-primary transition-colors">help</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant mx-1"></div>
+<div class="flex items-center gap-sm cursor-pointer">
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="h-full w-full object-cover" data-alt="Corporate headshot of a senior sales manager, professional studio lighting, clean gray background, sharp focus, wearing a tailored blue blazer, modern professional look for a B2B enterprise software environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdkVbBHHo9oceTT8aGO-2jz-_RIJEJepZT9V9I8aD0fJ07sufEFwT08epi8NRKKIQGTXrUTgxo0_fw1YtxysxZ7sZsMH-9MmUU4GJaEXIueZAPkaSjJP3g2aMs_dX9jLfMILDDx6N8HZpvb-3ftXsQBtxE6KEgapkqK8UsT8aQxgdjjRhHdLyajbXjFeIqYlhHc8zzsORT_nZMP8ZAj4_YSfUVsx4WhX_1281M_OgZPgwQ0Ire2R0dC14V7n928RXqNCCZcy8HkAU"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-xl space-y-xl max-w-[1600px] mx-auto w-full">
+<!-- Page Header -->
+<section class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Sales Representative Performance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time performance metrics and activity tracking across your sales force.</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+                        Filter View
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">download</span>
+                        Export Detailed Report
+                    </button>
+</div>
+</section>
+<!-- Representative Performance Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Rep Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-md">
+<div class="h-12 w-12 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Portrait of a smiling male sales professional in a professional work environment, high quality photography, soft natural lighting, vibrant blue and white tones, sharp facial features, representing corporate reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkHEKYumpV-yc5qvyxCHGZGirdZJziaHFM6hfB8mwDWYFWeWHwigSy5k6LHQKAs6EyTXxu3vAMcEHyNVxNUWgnjfjN4cvcASjWeKJoRFQOIHGVVda9LogsnKpvrKboLrrpgaM9wlnwk4NKr5uCZX-SqBCub4uh85avYEoOCr-mHFzsKR3siJC0-R6C-qzsNaa_4gl42Nhsqh763_iSM4-iSpsqEfI42GyQP5GRkoIpS2uq4azsKs59jXjeOT2ivdbkPE04BG7hAwY"/>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface">Marcus Chen</h4>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-wider">Senior Rep</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="grid grid-cols-2 gap-lg mb-lg">
+<div class="relative flex flex-col items-center justify-center">
+<!-- SVG Gauge -->
+<svg class="h-28 w-28 gauge-svg" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#eceef0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#004ac6" stroke-dasharray="282.7" stroke-dashoffset="40" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-primary">85%</span>
+<span class="font-label-sm text-label-sm text-outline">Target</span>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Actual Sales</p>
+<p class="font-title-lg text-title-lg text-on-surface">$142,500</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Commission</p>
+<p class="font-title-lg text-title-lg text-tertiary-container bg-tertiary-fixed rounded px-2 py-0.5 inline-block">$11,400</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Q3 Performance Progress</span>
+<span class="text-on-surface font-bold">Excellent</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<!-- Rep Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-md">
+<div class="h-12 w-12 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Portrait of a female sales executive in a modern bright office, corporate aesthetics, minimalist background, bright white and navy blue color palette, professional headshot, high detail, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzjZgP7GF0pv8SWELxq6QCMkMxBO9mkiNP5Fdpl0ppppXbQFqqFgvAKSYBEr6Kol0DkLqTOok8EdfwYW_AJX1W74yCz0cfg1ODJNnUg5PkC_RYshP8WrgZrMOH78kFryIxTZNYZ_7sdWjco69MJ6AXxxf6_MFOQOd_2DlY91PaADW23g0Zrvis0ChwOtC4d-kR4Yo820xHUe2Dzkr8qN3T8FOH_UbbDEtscfgP_2Ee3wrSfLXyZy-tRRisWl6V8XM_B0qcnBG8WUI"/>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface">Sarah Jenkins</h4>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-wider">Territory Lead</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="grid grid-cols-2 gap-lg mb-lg">
+<div class="relative flex flex-col items-center justify-center">
+<svg class="h-28 w-28 gauge-svg" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#eceef0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#004ac6" stroke-dasharray="282.7" stroke-dashoffset="20" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-primary">92%</span>
+<span class="font-label-sm text-label-sm text-outline">Target</span>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Actual Sales</p>
+<p class="font-title-lg text-title-lg text-on-surface">$208,300</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Commission</p>
+<p class="font-title-lg text-title-lg text-tertiary-container bg-tertiary-fixed rounded px-2 py-0.5 inline-block">$16,664</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Q3 Performance Progress</span>
+<span class="text-on-surface font-bold">Over-Target</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Rep Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-md">
+<div class="h-12 w-12 rounded-full overflow-hidden bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="Young professional sales representative in a high-tech corporate office, modern glass architecture in background, professional lighting, soft bokeh, wearing business casual attire, clean and professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfyi8HYUn1ltRzCjgaftMmbfsUDeurTeRbJDieyNte5qr0znXfoZOQk5MKWSLp7DYiDTd2rrYxP_IcPWpjyoX_2-kBjDMW1Tm4mbsYKYLuR1mMWRkspQeNyMNL1a_eMeDjAZ-EMGXoiX0WbKHM4-QlGU9WZ48tw9Ybz2PVCaBvCs8Leqxdkvz2iokHFOI7wKe19rbBDBOKFiggClVuz179YlUMzgFYyPuqoti54UqnvJf2cyubU0R8QWz6BrMgxag1LoXg4hKNq2Y"/>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface">Alex Rivera</h4>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-wider">Associate Rep</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="grid grid-cols-2 gap-lg mb-lg">
+<div class="relative flex flex-col items-center justify-center">
+<svg class="h-28 w-28 gauge-svg" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#eceef0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#ba1a1a" stroke-dasharray="282.7" stroke-dashoffset="120" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-error">58%</span>
+<span class="font-label-sm text-label-sm text-outline">Target</span>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Actual Sales</p>
+<p class="font-title-lg text-title-lg text-on-surface">$72,150</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline uppercase">Commission</p>
+<p class="font-title-lg text-title-lg text-tertiary-container bg-tertiary-fixed rounded px-2 py-0.5 inline-block">$5,772</p>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Q3 Performance Progress</span>
+<span class="text-error font-bold">Under-performing</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-error h-2 rounded-full w-[58%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Activity Table Section -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">Recent Sales Activities</h3>
+<div class="flex items-center gap-sm">
+<div class="flex rounded-lg border border-outline-variant overflow-hidden">
+<button class="px-3 py-1 bg-surface-container text-primary font-bold text-label-md border-r border-outline-variant">Daily</button>
+<button class="px-3 py-1 hover:bg-surface-container text-outline text-label-md">Weekly</button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-outline uppercase">
+<th class="px-lg py-4 font-bold">Representative</th>
+<th class="px-lg py-4 font-bold">Action / Deal</th>
+<th class="px-lg py-4 font-bold">Client Name</th>
+<th class="px-lg py-4 font-bold">Amount</th>
+<th class="px-lg py-4 font-bold">Status</th>
+<th class="px-lg py-4 font-bold text-right">Time</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-outline-variant">
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary-fixed text-primary font-bold flex items-center justify-center text-[10px]">MC</div>
+<span>Marcus Chen</span>
+</div>
+</td>
+<td class="px-lg py-4 font-bold text-on-surface">Contract Signature</td>
+<td class="px-lg py-4 text-on-surface-variant">Global Logistics Inc.</td>
+<td class="px-lg py-4 font-bold text-primary">$45,000</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-100 text-green-800 text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> COMPLETED
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right text-outline">10:45 AM</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-secondary-fixed text-secondary font-bold flex items-center justify-center text-[10px]">SJ</div>
+<span>Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-lg py-4 font-bold text-on-surface">Proposal Sent</td>
+<td class="px-lg py-4 text-on-surface-variant">Metro Retail Hub</td>
+<td class="px-lg py-4 font-bold text-primary">$128,400</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-blue-100 text-blue-800 text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> PENDING
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right text-outline">09:12 AM</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary-fixed text-primary font-bold flex items-center justify-center text-[10px]">MC</div>
+<span>Marcus Chen</span>
+</div>
+</td>
+<td class="px-lg py-4 font-bold text-on-surface">Client Call</td>
+<td class="px-lg py-4 text-on-surface-variant">Pioneer Tech</td>
+<td class="px-lg py-4 font-bold text-primary">N/A</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gray-100 text-gray-800 text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span> SCHEDULED
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right text-outline">Yesterday</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-tertiary-fixed text-tertiary font-bold flex items-center justify-center text-[10px]">AR</div>
+<span>Alex Rivera</span>
+</div>
+</td>
+<td class="px-lg py-4 font-bold text-on-surface">Bulk Order Intake</td>
+<td class="px-lg py-4 text-on-surface-variant">Apex Supplies Ltd.</td>
+<td class="px-lg py-4 font-bold text-primary">$12,200</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-100 text-green-800 text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> COMPLETED
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right text-outline">Yesterday</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-secondary-fixed text-secondary font-bold flex items-center justify-center text-[10px]">SJ</div>
+<span>Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-lg py-4 font-bold text-on-surface">Renewal Negotiation</td>
+<td class="px-lg py-4 text-on-surface-variant">Interstate Logistics</td>
+<td class="px-lg py-4 font-bold text-primary">$80,000</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-orange-100 text-orange-800 text-[11px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-600"></span> IN PROGRESS
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right text-outline">Aug 24, 2023</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md bg-surface-container-low text-center">
+<button class="font-label-md text-label-md text-primary font-bold hover:underline">View All Sales Activities</button>
+</div>
+</section>
+<!-- Bottom Insight Cards -->
+<section class="grid grid-cols-1 lg:grid-cols-4 gap-lg">
+<div class="lg:col-span-1 bg-primary text-on-primary p-lg rounded-xl flex flex-col justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg opacity-90">Overall Quota</h4>
+<p class="text-[32px] font-bold mt-2">72.4%</p>
+</div>
+<div class="mt-8 space-y-2">
+<div class="flex justify-between text-label-sm">
+<span>$1.2M Remaining</span>
+<span>Sep 30 Deadline</span>
+</div>
+<div class="w-full bg-white/20 rounded-full h-1.5">
+<div class="bg-white h-1.5 rounded-full w-[72%]"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-lg">trending_up</span>
+<span class="font-label-sm text-label-sm text-outline uppercase font-bold">Avg Deal Size</span>
+</div>
+<p class="text-headline-md font-headline-md text-on-surface">$12,450</p>
+<p class="text-green-600 text-[11px] font-bold mt-1">+14.2% from last month</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-tertiary p-2 bg-tertiary-fixed rounded-lg">timer</span>
+<span class="font-label-sm text-label-sm text-outline uppercase font-bold">Sales Cycle</span>
+</div>
+<p class="text-headline-md font-headline-md text-on-surface">18.5 Days</p>
+<p class="text-green-600 text-[11px] font-bold mt-1">-2 days improvement</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary-fixed rounded-lg">person_add</span>
+<span class="font-label-sm text-label-sm text-outline uppercase font-bold">New Leads</span>
+</div>
+<p class="text-headline-md font-headline-md text-on-surface">428</p>
+<p class="text-error text-[11px] font-bold mt-1">-5.1% this week</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Micro-interactions and data visualization triggers
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(4px)';
+                row.style.transition = 'transform 0.2s ease-out';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Initialize any gauge animations if needed
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Sales Dashboard Initialized');
+        });
+    </script>
+</body></html>

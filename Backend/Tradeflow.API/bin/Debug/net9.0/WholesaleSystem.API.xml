@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WholesaleSystem.API</name>
+    </assembly>
+    <members>
+        <member name="M:WholesaleSystem.API.Controllers.EmployeesController.GetSalesRepPerformance(System.Int32)">
+            <summary>
+            Get sales representative performance metrics
+            </summary>
+        </member>
+        <member name="M:WholesaleSystem.API.Controllers.OrdersController.CreateOrder(WholesaleSystem.Application.Commands.CreateOrderCommand)">
+            <summary>
+            Create a new order with stock validation
+            </summary>
+        </member>
+        <member name="M:WholesaleSystem.API.Controllers.OrdersController.UpdateOrderStatus(System.Int32,WholesaleSystem.Application.Commands.UpdateOrderStatusCommand)">
+            <summary>
+            Update order status (Pending -> Approved -> Completed)
+            </summary>
+        </member>
+        <member name="M:WholesaleSystem.API.Controllers.OrdersController.GetOrdersBySalesRep(System.Int32)">
+            <summary>
+            Get orders for a specific sales representative
+            </summary>
+        </member>
+        <member name="M:WholesaleSystem.API.Controllers.WarehousesController.GetProductsByWarehouse(System.Int32)">
+            <summary>
+            Get available products and quantities for a specific warehouse
+            </summary>
+        </member>
+        <member name="M:WholesaleSystem.API.Controllers.WarehousesController.AssignEmployeeToWarehouse(WholesaleSystem.Application.Commands.AssignEmployeeToWarehouseCommand)">
+            <summary>
+            Assign an employee to a warehouse
+            </summary>
+        </member>
+    </members>
+</doc>

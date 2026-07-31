@@ -1,0 +1,1764 @@
+2026-07-28 20:42:31.918 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 20:42:31.960 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:03:32.079 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:03:32.127 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:04:00.697 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:04:00.736 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:21:21.236 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:21:21.274 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:21:21.651 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:21:21.759 +03:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2026-07-28 21:21:21.999 +03:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-07-28 21:21:22.017 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Tradeflow.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:a96636f1-1762-4e45-abcc-17851dfb0788
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:a96636f1-1762-4e45-abcc-17851dfb0788
+Error Number:208,State:1,Class:16
+2026-07-28 21:23:30.079 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:23:30.120 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:23:30.475 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:23:33.580 +03:00 [INF] Executed DbCommand (3,049ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2026-07-28 21:23:33.677 +03:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TradeflowDb];
+2026-07-28 21:23:34.089 +03:00 [INF] Executed DbCommand (336ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TradeflowDb];
+2026-07-28 21:23:34.215 +03:00 [INF] Executed DbCommand (123ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-07-28 21:23:34.226 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:23:34.303 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2026-07-28 21:23:34.307 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Customers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Type] int NOT NULL,
+    [Address] nvarchar(200) NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([Id])
+);
+2026-07-28 21:23:34.310 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Employees] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Role] int NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    [Target] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Employees] PRIMARY KEY ([Id])
+);
+2026-07-28 21:23:34.313 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Warehouses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Location] nvarchar(200) NOT NULL,
+    CONSTRAINT [PK_Warehouses] PRIMARY KEY ([Id])
+);
+2026-07-28 21:23:34.317 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Barcode] nvarchar(50) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Cost] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:23:34.321 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EmployeeWarehouses] (
+    [EmployeeId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    CONSTRAINT [PK_EmployeeWarehouses] PRIMARY KEY ([EmployeeId], [WarehouseId]),
+    CONSTRAINT [FK_EmployeeWarehouses_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EmployeeWarehouses_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:23:34.328 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [SalesRepId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Status] int NOT NULL,
+    [TotalAmount] decimal(18,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Employees_SalesRepId] FOREIGN KEY ([SalesRepId]) REFERENCES [Employees] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:23:34.333 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Stocks] (
+    [ProductId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Stocks] PRIMARY KEY ([ProductId], [WarehouseId]),
+    CONSTRAINT [FK_Stocks_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Stocks_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:23:34.338 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderDetails] (
+    [OrderId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [TotalPrice] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY ([OrderId], [ProductId]),
+    CONSTRAINT [FK_OrderDetails_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:23:34.343 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EmployeeWarehouses_WarehouseId] ON [EmployeeWarehouses] ([WarehouseId]);
+2026-07-28 21:23:34.346 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderDetails_ProductId] ON [OrderDetails] ([ProductId]);
+2026-07-28 21:23:34.348 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_CustomerId] ON [Orders] ([CustomerId]);
+2026-07-28 21:23:34.351 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_SalesRepId] ON [Orders] ([SalesRepId]);
+2026-07-28 21:23:34.354 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_WarehouseId] ON [Orders] ([WarehouseId]);
+2026-07-28 21:23:34.356 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Barcode] ON [Products] ([Barcode]);
+2026-07-28 21:23:34.359 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2026-07-28 21:23:34.361 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Stocks_WarehouseId] ON [Stocks] ([WarehouseId]);
+2026-07-28 21:23:34.523 +03:00 [INF] Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Categories] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.580 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 200), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Warehouses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2)) AS i ([Location], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Location], [Name])
+VALUES (i.[Location], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.635 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Boolean), @p4='?' (Size = 200), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (DbType = Boolean), @p10='?' (Size = 200), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Boolean), @p16='?' (Size = 200), @p17='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p18='?' (Size = 50), @p19='?' (DbType = Int32), @p20='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p21='?' (DbType = Boolean), @p22='?' (Size = 200), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Size = 50), @p25='?' (DbType = Int32), @p26='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p27='?' (DbType = Boolean), @p28='?' (Size = 200), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 50), @p31='?' (DbType = Int32), @p32='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p33='?' (DbType = Boolean), @p34='?' (Size = 200), @p35='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p36='?' (Size = 50), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (DbType = Boolean), @p40='?' (Size = 200), @p41='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Boolean), @p46='?' (Size = 200), @p47='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p48='?' (Size = 50), @p49='?' (DbType = Int32), @p50='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p51='?' (DbType = Boolean), @p52='?' (Size = 200), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Size = 50), @p55='?' (DbType = Int32), @p56='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p57='?' (DbType = Boolean), @p58='?' (Size = 200), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (Size = 50), @p61='?' (DbType = Int32), @p62='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p63='?' (DbType = Boolean), @p64='?' (Size = 200), @p65='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p66='?' (Size = 50), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (DbType = Boolean), @p70='?' (Size = 200), @p71='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Boolean), @p76='?' (Size = 200), @p77='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p78='?' (Size = 50), @p79='?' (DbType = Int32), @p80='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p81='?' (DbType = Boolean), @p82='?' (Size = 200), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Size = 50), @p85='?' (DbType = Int32), @p86='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p87='?' (DbType = Boolean), @p88='?' (Size = 200), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Products] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9),
+(@p60, @p61, @p62, @p63, @p64, @p65, 10),
+(@p66, @p67, @p68, @p69, @p70, @p71, 11),
+(@p72, @p73, @p74, @p75, @p76, @p77, 12),
+(@p78, @p79, @p80, @p81, @p82, @p83, 13),
+(@p84, @p85, @p86, @p87, @p88, @p89, 14)) AS i ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price])
+VALUES (i.[Barcode], i.[CategoryId], i.[Cost], i.[IsDeleted], i.[Name], i.[Price])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.673 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (DbType = Int32), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int32), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (DbType = Int32), @p74='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (DbType = Int32), @p84='?' (DbType = Int32), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (DbType = Int32), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (DbType = Int32), @p109='?' (DbType = Int32), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (DbType = Int32), @p114='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (DbType = Int32), @p119='?' (DbType = Int32), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (DbType = Int32), @p124='?' (DbType = Int32), @p125='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8),
+(@p9, @p10, @p11),
+(@p12, @p13, @p14),
+(@p15, @p16, @p17),
+(@p18, @p19, @p20),
+(@p21, @p22, @p23),
+(@p24, @p25, @p26),
+(@p27, @p28, @p29),
+(@p30, @p31, @p32),
+(@p33, @p34, @p35),
+(@p36, @p37, @p38),
+(@p39, @p40, @p41),
+(@p42, @p43, @p44),
+(@p45, @p46, @p47),
+(@p48, @p49, @p50),
+(@p51, @p52, @p53),
+(@p54, @p55, @p56),
+(@p57, @p58, @p59),
+(@p60, @p61, @p62),
+(@p63, @p64, @p65),
+(@p66, @p67, @p68),
+(@p69, @p70, @p71),
+(@p72, @p73, @p74),
+(@p75, @p76, @p77),
+(@p78, @p79, @p80),
+(@p81, @p82, @p83),
+(@p84, @p85, @p86),
+(@p87, @p88, @p89),
+(@p90, @p91, @p92),
+(@p93, @p94, @p95),
+(@p96, @p97, @p98),
+(@p99, @p100, @p101),
+(@p102, @p103, @p104),
+(@p105, @p106, @p107),
+(@p108, @p109, @p110),
+(@p111, @p112, @p113),
+(@p114, @p115, @p116),
+(@p117, @p118, @p119),
+(@p120, @p121, @p122),
+(@p123, @p124, @p125);
+2026-07-28 21:23:34.681 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+2026-07-28 21:23:34.715 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 20), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Size = 100), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p8='?' (Size = 100), @p9='?' (Size = 20), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 100), @p13='?' (Size = 20), @p14='?' (DbType = Int32), @p15='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p16='?' (Size = 100), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 100), @p21='?' (Size = 20), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Name], [Phone], [Role], [Target], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Phone], [Role], [Target])
+VALUES (i.[Name], i.[Phone], i.[Role], i.[Target])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.731 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [EmployeeWarehouses] ([EmployeeId], [WarehouseId])
+VALUES (@p0, @p1),
+(@p2, @p3),
+(@p4, @p5),
+(@p6, @p7),
+(@p8, @p9);
+2026-07-28 21:23:34.751 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 20), @p3='?' (DbType = Int32), @p4='?' (Size = 200), @p5='?' (Size = 100), @p6='?' (Size = 20), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 100), @p10='?' (Size = 20), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 100), @p14='?' (Size = 20), @p15='?' (DbType = Int32), @p16='?' (Size = 200), @p17='?' (Size = 100), @p18='?' (Size = 20), @p19='?' (DbType = Int32), @p20='?' (Size = 200), @p21='?' (Size = 100), @p22='?' (Size = 20), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Customers] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Address], [Name], [Phone], [Type], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Address], [Name], [Phone], [Type])
+VALUES (i.[Address], i.[Name], i.[Phone], i.[Type])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.803 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = Int32), @p42='?' (DbType = DateTime2), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Orders] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9)) AS i ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId])
+VALUES (i.[CreatedAt], i.[CustomerId], i.[SalesRepId], i.[Status], i.[TotalAmount], i.[WarehouseId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:23:34.861 +03:00 [INF] Executed DbCommand (40ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p49='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p64='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p79='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p94='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p99='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p104='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p109='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p114='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p119='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p124='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p125='?' (DbType = Int32), @p126='?' (DbType = Int32), @p127='?' (DbType = Int32), @p128='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p129='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p130='?' (DbType = Int32), @p131='?' (DbType = Int32), @p132='?' (DbType = Int32), @p133='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p134='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p136='?' (DbType = Int32), @p135='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p138='?' (DbType = Int32), @p137='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p140='?' (DbType = Int32), @p139='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p142='?' (DbType = Int32), @p141='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p144='?' (DbType = Int32), @p143='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p146='?' (DbType = Int32), @p145='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p148='?' (DbType = Int32), @p147='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p150='?' (DbType = Int32), @p149='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p152='?' (DbType = Int32), @p151='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p154='?' (DbType = Int32), @p153='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderDetails] ([OrderId], [ProductId], [Quantity], [TotalPrice], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4),
+(@p5, @p6, @p7, @p8, @p9),
+(@p10, @p11, @p12, @p13, @p14),
+(@p15, @p16, @p17, @p18, @p19),
+(@p20, @p21, @p22, @p23, @p24),
+(@p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34),
+(@p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44),
+(@p45, @p46, @p47, @p48, @p49),
+(@p50, @p51, @p52, @p53, @p54),
+(@p55, @p56, @p57, @p58, @p59),
+(@p60, @p61, @p62, @p63, @p64),
+(@p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74),
+(@p75, @p76, @p77, @p78, @p79),
+(@p80, @p81, @p82, @p83, @p84),
+(@p85, @p86, @p87, @p88, @p89),
+(@p90, @p91, @p92, @p93, @p94),
+(@p95, @p96, @p97, @p98, @p99),
+(@p100, @p101, @p102, @p103, @p104),
+(@p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114),
+(@p115, @p116, @p117, @p118, @p119),
+(@p120, @p121, @p122, @p123, @p124),
+(@p125, @p126, @p127, @p128, @p129),
+(@p130, @p131, @p132, @p133, @p134);
+UPDATE [Orders] SET [TotalAmount] = @p135
+OUTPUT 1
+WHERE [Id] = @p136;
+UPDATE [Orders] SET [TotalAmount] = @p137
+OUTPUT 1
+WHERE [Id] = @p138;
+UPDATE [Orders] SET [TotalAmount] = @p139
+OUTPUT 1
+WHERE [Id] = @p140;
+UPDATE [Orders] SET [TotalAmount] = @p141
+OUTPUT 1
+WHERE [Id] = @p142;
+UPDATE [Orders] SET [TotalAmount] = @p143
+OUTPUT 1
+WHERE [Id] = @p144;
+UPDATE [Orders] SET [TotalAmount] = @p145
+OUTPUT 1
+WHERE [Id] = @p146;
+UPDATE [Orders] SET [TotalAmount] = @p147
+OUTPUT 1
+WHERE [Id] = @p148;
+UPDATE [Orders] SET [TotalAmount] = @p149
+OUTPUT 1
+WHERE [Id] = @p150;
+UPDATE [Orders] SET [TotalAmount] = @p151
+OUTPUT 1
+WHERE [Id] = @p152;
+UPDATE [Orders] SET [TotalAmount] = @p153
+OUTPUT 1
+WHERE [Id] = @p154;
+2026-07-28 21:27:28.993 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:27:29.045 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:27:29.447 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:27:32.533 +03:00 [INF] Executed DbCommand (3,040ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2026-07-28 21:27:32.625 +03:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TradeflowDb];
+2026-07-28 21:27:33.219 +03:00 [INF] Executed DbCommand (523ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TradeflowDb];
+2026-07-28 21:27:33.364 +03:00 [INF] Executed DbCommand (143ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-07-28 21:27:33.371 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:27:33.456 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2026-07-28 21:27:33.459 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Customers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Type] int NOT NULL,
+    [Address] nvarchar(200) NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([Id])
+);
+2026-07-28 21:27:33.464 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Employees] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Role] int NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    [Target] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Employees] PRIMARY KEY ([Id])
+);
+2026-07-28 21:27:33.470 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Warehouses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Location] nvarchar(200) NOT NULL,
+    CONSTRAINT [PK_Warehouses] PRIMARY KEY ([Id])
+);
+2026-07-28 21:27:33.474 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Barcode] nvarchar(50) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Cost] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:27:33.480 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EmployeeWarehouses] (
+    [EmployeeId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    CONSTRAINT [PK_EmployeeWarehouses] PRIMARY KEY ([EmployeeId], [WarehouseId]),
+    CONSTRAINT [FK_EmployeeWarehouses_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EmployeeWarehouses_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:27:33.489 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [SalesRepId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Status] int NOT NULL,
+    [TotalAmount] decimal(18,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Employees_SalesRepId] FOREIGN KEY ([SalesRepId]) REFERENCES [Employees] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:27:33.494 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Stocks] (
+    [ProductId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Stocks] PRIMARY KEY ([ProductId], [WarehouseId]),
+    CONSTRAINT [FK_Stocks_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Stocks_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:27:33.499 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderDetails] (
+    [OrderId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [TotalPrice] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY ([OrderId], [ProductId]),
+    CONSTRAINT [FK_OrderDetails_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:27:33.504 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EmployeeWarehouses_WarehouseId] ON [EmployeeWarehouses] ([WarehouseId]);
+2026-07-28 21:27:33.507 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderDetails_ProductId] ON [OrderDetails] ([ProductId]);
+2026-07-28 21:27:33.510 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_CustomerId] ON [Orders] ([CustomerId]);
+2026-07-28 21:27:33.513 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_SalesRepId] ON [Orders] ([SalesRepId]);
+2026-07-28 21:27:33.515 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_WarehouseId] ON [Orders] ([WarehouseId]);
+2026-07-28 21:27:33.519 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Barcode] ON [Products] ([Barcode]);
+2026-07-28 21:27:33.522 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2026-07-28 21:27:33.524 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Stocks_WarehouseId] ON [Stocks] ([WarehouseId]);
+2026-07-28 21:27:33.690 +03:00 [INF] Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Categories] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:33.743 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 200), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Warehouses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2)) AS i ([Location], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Location], [Name])
+VALUES (i.[Location], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:33.795 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Boolean), @p4='?' (Size = 200), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (DbType = Boolean), @p10='?' (Size = 200), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Boolean), @p16='?' (Size = 200), @p17='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p18='?' (Size = 50), @p19='?' (DbType = Int32), @p20='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p21='?' (DbType = Boolean), @p22='?' (Size = 200), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Size = 50), @p25='?' (DbType = Int32), @p26='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p27='?' (DbType = Boolean), @p28='?' (Size = 200), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 50), @p31='?' (DbType = Int32), @p32='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p33='?' (DbType = Boolean), @p34='?' (Size = 200), @p35='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p36='?' (Size = 50), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (DbType = Boolean), @p40='?' (Size = 200), @p41='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Boolean), @p46='?' (Size = 200), @p47='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p48='?' (Size = 50), @p49='?' (DbType = Int32), @p50='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p51='?' (DbType = Boolean), @p52='?' (Size = 200), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Size = 50), @p55='?' (DbType = Int32), @p56='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p57='?' (DbType = Boolean), @p58='?' (Size = 200), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (Size = 50), @p61='?' (DbType = Int32), @p62='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p63='?' (DbType = Boolean), @p64='?' (Size = 200), @p65='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p66='?' (Size = 50), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (DbType = Boolean), @p70='?' (Size = 200), @p71='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Boolean), @p76='?' (Size = 200), @p77='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p78='?' (Size = 50), @p79='?' (DbType = Int32), @p80='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p81='?' (DbType = Boolean), @p82='?' (Size = 200), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Size = 50), @p85='?' (DbType = Int32), @p86='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p87='?' (DbType = Boolean), @p88='?' (Size = 200), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Products] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9),
+(@p60, @p61, @p62, @p63, @p64, @p65, 10),
+(@p66, @p67, @p68, @p69, @p70, @p71, 11),
+(@p72, @p73, @p74, @p75, @p76, @p77, 12),
+(@p78, @p79, @p80, @p81, @p82, @p83, 13),
+(@p84, @p85, @p86, @p87, @p88, @p89, 14)) AS i ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price])
+VALUES (i.[Barcode], i.[CategoryId], i.[Cost], i.[IsDeleted], i.[Name], i.[Price])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:33.830 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (DbType = Int32), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int32), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (DbType = Int32), @p74='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (DbType = Int32), @p84='?' (DbType = Int32), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (DbType = Int32), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (DbType = Int32), @p109='?' (DbType = Int32), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (DbType = Int32), @p114='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (DbType = Int32), @p119='?' (DbType = Int32), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (DbType = Int32), @p124='?' (DbType = Int32), @p125='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8),
+(@p9, @p10, @p11),
+(@p12, @p13, @p14),
+(@p15, @p16, @p17),
+(@p18, @p19, @p20),
+(@p21, @p22, @p23),
+(@p24, @p25, @p26),
+(@p27, @p28, @p29),
+(@p30, @p31, @p32),
+(@p33, @p34, @p35),
+(@p36, @p37, @p38),
+(@p39, @p40, @p41),
+(@p42, @p43, @p44),
+(@p45, @p46, @p47),
+(@p48, @p49, @p50),
+(@p51, @p52, @p53),
+(@p54, @p55, @p56),
+(@p57, @p58, @p59),
+(@p60, @p61, @p62),
+(@p63, @p64, @p65),
+(@p66, @p67, @p68),
+(@p69, @p70, @p71),
+(@p72, @p73, @p74),
+(@p75, @p76, @p77),
+(@p78, @p79, @p80),
+(@p81, @p82, @p83),
+(@p84, @p85, @p86),
+(@p87, @p88, @p89),
+(@p90, @p91, @p92),
+(@p93, @p94, @p95),
+(@p96, @p97, @p98),
+(@p99, @p100, @p101),
+(@p102, @p103, @p104),
+(@p105, @p106, @p107),
+(@p108, @p109, @p110),
+(@p111, @p112, @p113),
+(@p114, @p115, @p116),
+(@p117, @p118, @p119),
+(@p120, @p121, @p122),
+(@p123, @p124, @p125);
+2026-07-28 21:27:33.837 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+2026-07-28 21:27:33.864 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 20), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Size = 100), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p8='?' (Size = 100), @p9='?' (Size = 20), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 100), @p13='?' (Size = 20), @p14='?' (DbType = Int32), @p15='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p16='?' (Size = 100), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 100), @p21='?' (Size = 20), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Name], [Phone], [Role], [Target], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Phone], [Role], [Target])
+VALUES (i.[Name], i.[Phone], i.[Role], i.[Target])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:33.881 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [EmployeeWarehouses] ([EmployeeId], [WarehouseId])
+VALUES (@p0, @p1),
+(@p2, @p3),
+(@p4, @p5),
+(@p6, @p7),
+(@p8, @p9);
+2026-07-28 21:27:33.905 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 20), @p3='?' (DbType = Int32), @p4='?' (Size = 200), @p5='?' (Size = 100), @p6='?' (Size = 20), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 100), @p10='?' (Size = 20), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 100), @p14='?' (Size = 20), @p15='?' (DbType = Int32), @p16='?' (Size = 200), @p17='?' (Size = 100), @p18='?' (Size = 20), @p19='?' (DbType = Int32), @p20='?' (Size = 200), @p21='?' (Size = 100), @p22='?' (Size = 20), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Customers] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Address], [Name], [Phone], [Type], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Address], [Name], [Phone], [Type])
+VALUES (i.[Address], i.[Name], i.[Phone], i.[Type])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:33.950 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = Int32), @p42='?' (DbType = DateTime2), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Orders] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9)) AS i ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId])
+VALUES (i.[CreatedAt], i.[CustomerId], i.[SalesRepId], i.[Status], i.[TotalAmount], i.[WarehouseId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:27:34.002 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p49='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p64='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p79='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p94='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p99='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p104='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p109='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p114='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p116='?' (DbType = Int32), @p115='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p118='?' (DbType = Int32), @p117='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p120='?' (DbType = Int32), @p119='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p122='?' (DbType = Int32), @p121='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p124='?' (DbType = Int32), @p123='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p126='?' (DbType = Int32), @p125='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p128='?' (DbType = Int32), @p127='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p130='?' (DbType = Int32), @p129='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p132='?' (DbType = Int32), @p131='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p134='?' (DbType = Int32), @p133='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderDetails] ([OrderId], [ProductId], [Quantity], [TotalPrice], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4),
+(@p5, @p6, @p7, @p8, @p9),
+(@p10, @p11, @p12, @p13, @p14),
+(@p15, @p16, @p17, @p18, @p19),
+(@p20, @p21, @p22, @p23, @p24),
+(@p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34),
+(@p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44),
+(@p45, @p46, @p47, @p48, @p49),
+(@p50, @p51, @p52, @p53, @p54),
+(@p55, @p56, @p57, @p58, @p59),
+(@p60, @p61, @p62, @p63, @p64),
+(@p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74),
+(@p75, @p76, @p77, @p78, @p79),
+(@p80, @p81, @p82, @p83, @p84),
+(@p85, @p86, @p87, @p88, @p89),
+(@p90, @p91, @p92, @p93, @p94),
+(@p95, @p96, @p97, @p98, @p99),
+(@p100, @p101, @p102, @p103, @p104),
+(@p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114);
+UPDATE [Orders] SET [TotalAmount] = @p115
+OUTPUT 1
+WHERE [Id] = @p116;
+UPDATE [Orders] SET [TotalAmount] = @p117
+OUTPUT 1
+WHERE [Id] = @p118;
+UPDATE [Orders] SET [TotalAmount] = @p119
+OUTPUT 1
+WHERE [Id] = @p120;
+UPDATE [Orders] SET [TotalAmount] = @p121
+OUTPUT 1
+WHERE [Id] = @p122;
+UPDATE [Orders] SET [TotalAmount] = @p123
+OUTPUT 1
+WHERE [Id] = @p124;
+UPDATE [Orders] SET [TotalAmount] = @p125
+OUTPUT 1
+WHERE [Id] = @p126;
+UPDATE [Orders] SET [TotalAmount] = @p127
+OUTPUT 1
+WHERE [Id] = @p128;
+UPDATE [Orders] SET [TotalAmount] = @p129
+OUTPUT 1
+WHERE [Id] = @p130;
+UPDATE [Orders] SET [TotalAmount] = @p131
+OUTPUT 1
+WHERE [Id] = @p132;
+UPDATE [Orders] SET [TotalAmount] = @p133
+OUTPUT 1
+WHERE [Id] = @p134;
+2026-07-28 21:30:00.497 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:30:00.551 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:30:00.942 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:30:01.019 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2026-07-28 21:30:01.072 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TradeflowDb];
+2026-07-28 21:30:01.467 +03:00 [INF] Executed DbCommand (321ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TradeflowDb];
+2026-07-28 21:30:01.568 +03:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-07-28 21:30:01.575 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:30:01.649 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2026-07-28 21:30:01.653 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Customers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Type] int NOT NULL,
+    [Address] nvarchar(200) NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([Id])
+);
+2026-07-28 21:30:01.657 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Employees] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Role] int NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    [Target] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Employees] PRIMARY KEY ([Id])
+);
+2026-07-28 21:30:01.660 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Warehouses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Location] nvarchar(200) NOT NULL,
+    CONSTRAINT [PK_Warehouses] PRIMARY KEY ([Id])
+);
+2026-07-28 21:30:01.665 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Barcode] nvarchar(50) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Cost] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:30:01.671 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EmployeeWarehouses] (
+    [EmployeeId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    CONSTRAINT [PK_EmployeeWarehouses] PRIMARY KEY ([EmployeeId], [WarehouseId]),
+    CONSTRAINT [FK_EmployeeWarehouses_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EmployeeWarehouses_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:30:01.677 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [SalesRepId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Status] int NOT NULL,
+    [TotalAmount] decimal(18,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Employees_SalesRepId] FOREIGN KEY ([SalesRepId]) REFERENCES [Employees] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:30:01.682 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Stocks] (
+    [ProductId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Stocks] PRIMARY KEY ([ProductId], [WarehouseId]),
+    CONSTRAINT [FK_Stocks_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Stocks_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:30:01.689 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderDetails] (
+    [OrderId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [TotalPrice] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY ([OrderId], [ProductId]),
+    CONSTRAINT [FK_OrderDetails_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:30:01.692 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EmployeeWarehouses_WarehouseId] ON [EmployeeWarehouses] ([WarehouseId]);
+2026-07-28 21:30:01.695 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderDetails_ProductId] ON [OrderDetails] ([ProductId]);
+2026-07-28 21:30:01.698 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_CustomerId] ON [Orders] ([CustomerId]);
+2026-07-28 21:30:01.701 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_SalesRepId] ON [Orders] ([SalesRepId]);
+2026-07-28 21:30:01.705 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_WarehouseId] ON [Orders] ([WarehouseId]);
+2026-07-28 21:30:01.707 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Barcode] ON [Products] ([Barcode]);
+2026-07-28 21:30:01.710 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2026-07-28 21:30:01.713 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Stocks_WarehouseId] ON [Stocks] ([WarehouseId]);
+2026-07-28 21:30:01.882 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Categories] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:01.941 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 200), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Warehouses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2)) AS i ([Location], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Location], [Name])
+VALUES (i.[Location], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:01.993 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Boolean), @p4='?' (Size = 200), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (DbType = Boolean), @p10='?' (Size = 200), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Boolean), @p16='?' (Size = 200), @p17='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p18='?' (Size = 50), @p19='?' (DbType = Int32), @p20='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p21='?' (DbType = Boolean), @p22='?' (Size = 200), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Size = 50), @p25='?' (DbType = Int32), @p26='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p27='?' (DbType = Boolean), @p28='?' (Size = 200), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 50), @p31='?' (DbType = Int32), @p32='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p33='?' (DbType = Boolean), @p34='?' (Size = 200), @p35='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p36='?' (Size = 50), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (DbType = Boolean), @p40='?' (Size = 200), @p41='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Boolean), @p46='?' (Size = 200), @p47='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p48='?' (Size = 50), @p49='?' (DbType = Int32), @p50='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p51='?' (DbType = Boolean), @p52='?' (Size = 200), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Size = 50), @p55='?' (DbType = Int32), @p56='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p57='?' (DbType = Boolean), @p58='?' (Size = 200), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (Size = 50), @p61='?' (DbType = Int32), @p62='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p63='?' (DbType = Boolean), @p64='?' (Size = 200), @p65='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p66='?' (Size = 50), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (DbType = Boolean), @p70='?' (Size = 200), @p71='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Boolean), @p76='?' (Size = 200), @p77='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p78='?' (Size = 50), @p79='?' (DbType = Int32), @p80='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p81='?' (DbType = Boolean), @p82='?' (Size = 200), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Size = 50), @p85='?' (DbType = Int32), @p86='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p87='?' (DbType = Boolean), @p88='?' (Size = 200), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Products] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9),
+(@p60, @p61, @p62, @p63, @p64, @p65, 10),
+(@p66, @p67, @p68, @p69, @p70, @p71, 11),
+(@p72, @p73, @p74, @p75, @p76, @p77, 12),
+(@p78, @p79, @p80, @p81, @p82, @p83, 13),
+(@p84, @p85, @p86, @p87, @p88, @p89, 14)) AS i ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price])
+VALUES (i.[Barcode], i.[CategoryId], i.[Cost], i.[IsDeleted], i.[Name], i.[Price])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:02.029 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (DbType = Int32), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int32), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (DbType = Int32), @p74='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (DbType = Int32), @p84='?' (DbType = Int32), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (DbType = Int32), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (DbType = Int32), @p109='?' (DbType = Int32), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (DbType = Int32), @p114='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (DbType = Int32), @p119='?' (DbType = Int32), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (DbType = Int32), @p124='?' (DbType = Int32), @p125='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8),
+(@p9, @p10, @p11),
+(@p12, @p13, @p14),
+(@p15, @p16, @p17),
+(@p18, @p19, @p20),
+(@p21, @p22, @p23),
+(@p24, @p25, @p26),
+(@p27, @p28, @p29),
+(@p30, @p31, @p32),
+(@p33, @p34, @p35),
+(@p36, @p37, @p38),
+(@p39, @p40, @p41),
+(@p42, @p43, @p44),
+(@p45, @p46, @p47),
+(@p48, @p49, @p50),
+(@p51, @p52, @p53),
+(@p54, @p55, @p56),
+(@p57, @p58, @p59),
+(@p60, @p61, @p62),
+(@p63, @p64, @p65),
+(@p66, @p67, @p68),
+(@p69, @p70, @p71),
+(@p72, @p73, @p74),
+(@p75, @p76, @p77),
+(@p78, @p79, @p80),
+(@p81, @p82, @p83),
+(@p84, @p85, @p86),
+(@p87, @p88, @p89),
+(@p90, @p91, @p92),
+(@p93, @p94, @p95),
+(@p96, @p97, @p98),
+(@p99, @p100, @p101),
+(@p102, @p103, @p104),
+(@p105, @p106, @p107),
+(@p108, @p109, @p110),
+(@p111, @p112, @p113),
+(@p114, @p115, @p116),
+(@p117, @p118, @p119),
+(@p120, @p121, @p122),
+(@p123, @p124, @p125);
+2026-07-28 21:30:02.036 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+2026-07-28 21:30:02.065 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 20), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Size = 100), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p8='?' (Size = 100), @p9='?' (Size = 20), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 100), @p13='?' (Size = 20), @p14='?' (DbType = Int32), @p15='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p16='?' (Size = 100), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 100), @p21='?' (Size = 20), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Name], [Phone], [Role], [Target], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Phone], [Role], [Target])
+VALUES (i.[Name], i.[Phone], i.[Role], i.[Target])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:02.081 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [EmployeeWarehouses] ([EmployeeId], [WarehouseId])
+VALUES (@p0, @p1),
+(@p2, @p3),
+(@p4, @p5),
+(@p6, @p7),
+(@p8, @p9);
+2026-07-28 21:30:02.100 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 20), @p3='?' (DbType = Int32), @p4='?' (Size = 200), @p5='?' (Size = 100), @p6='?' (Size = 20), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 100), @p10='?' (Size = 20), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 100), @p14='?' (Size = 20), @p15='?' (DbType = Int32), @p16='?' (Size = 200), @p17='?' (Size = 100), @p18='?' (Size = 20), @p19='?' (DbType = Int32), @p20='?' (Size = 200), @p21='?' (Size = 100), @p22='?' (Size = 20), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Customers] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Address], [Name], [Phone], [Type], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Address], [Name], [Phone], [Type])
+VALUES (i.[Address], i.[Name], i.[Phone], i.[Type])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:02.149 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = Int32), @p42='?' (DbType = DateTime2), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Orders] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9)) AS i ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId])
+VALUES (i.[CreatedAt], i.[CustomerId], i.[SalesRepId], i.[Status], i.[TotalAmount], i.[WarehouseId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:30:02.204 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p49='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p64='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p79='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p94='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p99='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p104='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p109='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p114='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p119='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p124='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p125='?' (DbType = Int32), @p126='?' (DbType = Int32), @p127='?' (DbType = Int32), @p128='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p129='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p130='?' (DbType = Int32), @p131='?' (DbType = Int32), @p132='?' (DbType = Int32), @p133='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p134='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p135='?' (DbType = Int32), @p136='?' (DbType = Int32), @p137='?' (DbType = Int32), @p138='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p139='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p140='?' (DbType = Int32), @p141='?' (DbType = Int32), @p142='?' (DbType = Int32), @p143='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p144='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p145='?' (DbType = Int32), @p146='?' (DbType = Int32), @p147='?' (DbType = Int32), @p148='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p149='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p151='?' (DbType = Int32), @p150='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p153='?' (DbType = Int32), @p152='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p155='?' (DbType = Int32), @p154='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p157='?' (DbType = Int32), @p156='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p159='?' (DbType = Int32), @p158='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p161='?' (DbType = Int32), @p160='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p163='?' (DbType = Int32), @p162='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p165='?' (DbType = Int32), @p164='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p167='?' (DbType = Int32), @p166='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p169='?' (DbType = Int32), @p168='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderDetails] ([OrderId], [ProductId], [Quantity], [TotalPrice], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4),
+(@p5, @p6, @p7, @p8, @p9),
+(@p10, @p11, @p12, @p13, @p14),
+(@p15, @p16, @p17, @p18, @p19),
+(@p20, @p21, @p22, @p23, @p24),
+(@p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34),
+(@p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44),
+(@p45, @p46, @p47, @p48, @p49),
+(@p50, @p51, @p52, @p53, @p54),
+(@p55, @p56, @p57, @p58, @p59),
+(@p60, @p61, @p62, @p63, @p64),
+(@p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74),
+(@p75, @p76, @p77, @p78, @p79),
+(@p80, @p81, @p82, @p83, @p84),
+(@p85, @p86, @p87, @p88, @p89),
+(@p90, @p91, @p92, @p93, @p94),
+(@p95, @p96, @p97, @p98, @p99),
+(@p100, @p101, @p102, @p103, @p104),
+(@p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114),
+(@p115, @p116, @p117, @p118, @p119),
+(@p120, @p121, @p122, @p123, @p124),
+(@p125, @p126, @p127, @p128, @p129),
+(@p130, @p131, @p132, @p133, @p134),
+(@p135, @p136, @p137, @p138, @p139),
+(@p140, @p141, @p142, @p143, @p144),
+(@p145, @p146, @p147, @p148, @p149);
+UPDATE [Orders] SET [TotalAmount] = @p150
+OUTPUT 1
+WHERE [Id] = @p151;
+UPDATE [Orders] SET [TotalAmount] = @p152
+OUTPUT 1
+WHERE [Id] = @p153;
+UPDATE [Orders] SET [TotalAmount] = @p154
+OUTPUT 1
+WHERE [Id] = @p155;
+UPDATE [Orders] SET [TotalAmount] = @p156
+OUTPUT 1
+WHERE [Id] = @p157;
+UPDATE [Orders] SET [TotalAmount] = @p158
+OUTPUT 1
+WHERE [Id] = @p159;
+UPDATE [Orders] SET [TotalAmount] = @p160
+OUTPUT 1
+WHERE [Id] = @p161;
+UPDATE [Orders] SET [TotalAmount] = @p162
+OUTPUT 1
+WHERE [Id] = @p163;
+UPDATE [Orders] SET [TotalAmount] = @p164
+OUTPUT 1
+WHERE [Id] = @p165;
+UPDATE [Orders] SET [TotalAmount] = @p166
+OUTPUT 1
+WHERE [Id] = @p167;
+UPDATE [Orders] SET [TotalAmount] = @p168
+OUTPUT 1
+WHERE [Id] = @p169;
+2026-07-28 21:31:07.275 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:31:07.318 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:31:07.641 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:31:10.726 +03:00 [INF] Executed DbCommand (3,039ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2026-07-28 21:31:10.790 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TradeflowDb];
+2026-07-28 21:31:11.299 +03:00 [INF] Executed DbCommand (438ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TradeflowDb];
+2026-07-28 21:31:11.421 +03:00 [INF] Executed DbCommand (121ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-07-28 21:31:11.431 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:31:11.506 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2026-07-28 21:31:11.510 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Customers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Type] int NOT NULL,
+    [Address] nvarchar(200) NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([Id])
+);
+2026-07-28 21:31:11.514 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Employees] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Role] int NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    [Target] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Employees] PRIMARY KEY ([Id])
+);
+2026-07-28 21:31:11.518 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Warehouses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Location] nvarchar(200) NOT NULL,
+    CONSTRAINT [PK_Warehouses] PRIMARY KEY ([Id])
+);
+2026-07-28 21:31:11.522 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Barcode] nvarchar(50) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Cost] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:31:11.526 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EmployeeWarehouses] (
+    [EmployeeId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    CONSTRAINT [PK_EmployeeWarehouses] PRIMARY KEY ([EmployeeId], [WarehouseId]),
+    CONSTRAINT [FK_EmployeeWarehouses_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EmployeeWarehouses_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:31:11.532 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [SalesRepId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Status] int NOT NULL,
+    [TotalAmount] decimal(18,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Employees_SalesRepId] FOREIGN KEY ([SalesRepId]) REFERENCES [Employees] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:31:11.542 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Stocks] (
+    [ProductId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Stocks] PRIMARY KEY ([ProductId], [WarehouseId]),
+    CONSTRAINT [FK_Stocks_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Stocks_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:31:11.547 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderDetails] (
+    [OrderId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [TotalPrice] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY ([OrderId], [ProductId]),
+    CONSTRAINT [FK_OrderDetails_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:31:11.555 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EmployeeWarehouses_WarehouseId] ON [EmployeeWarehouses] ([WarehouseId]);
+2026-07-28 21:31:11.564 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderDetails_ProductId] ON [OrderDetails] ([ProductId]);
+2026-07-28 21:31:11.568 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_CustomerId] ON [Orders] ([CustomerId]);
+2026-07-28 21:31:11.574 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_SalesRepId] ON [Orders] ([SalesRepId]);
+2026-07-28 21:31:11.585 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_WarehouseId] ON [Orders] ([WarehouseId]);
+2026-07-28 21:31:11.590 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Barcode] ON [Products] ([Barcode]);
+2026-07-28 21:31:11.593 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2026-07-28 21:31:11.596 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Stocks_WarehouseId] ON [Stocks] ([WarehouseId]);
+2026-07-28 21:31:11.791 +03:00 [INF] Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Categories] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:11.845 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 200), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Warehouses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2)) AS i ([Location], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Location], [Name])
+VALUES (i.[Location], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:11.898 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Boolean), @p4='?' (Size = 200), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (DbType = Boolean), @p10='?' (Size = 200), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Boolean), @p16='?' (Size = 200), @p17='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p18='?' (Size = 50), @p19='?' (DbType = Int32), @p20='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p21='?' (DbType = Boolean), @p22='?' (Size = 200), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Size = 50), @p25='?' (DbType = Int32), @p26='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p27='?' (DbType = Boolean), @p28='?' (Size = 200), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 50), @p31='?' (DbType = Int32), @p32='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p33='?' (DbType = Boolean), @p34='?' (Size = 200), @p35='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p36='?' (Size = 50), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (DbType = Boolean), @p40='?' (Size = 200), @p41='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Boolean), @p46='?' (Size = 200), @p47='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p48='?' (Size = 50), @p49='?' (DbType = Int32), @p50='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p51='?' (DbType = Boolean), @p52='?' (Size = 200), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Size = 50), @p55='?' (DbType = Int32), @p56='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p57='?' (DbType = Boolean), @p58='?' (Size = 200), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (Size = 50), @p61='?' (DbType = Int32), @p62='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p63='?' (DbType = Boolean), @p64='?' (Size = 200), @p65='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p66='?' (Size = 50), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (DbType = Boolean), @p70='?' (Size = 200), @p71='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Boolean), @p76='?' (Size = 200), @p77='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p78='?' (Size = 50), @p79='?' (DbType = Int32), @p80='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p81='?' (DbType = Boolean), @p82='?' (Size = 200), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Size = 50), @p85='?' (DbType = Int32), @p86='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p87='?' (DbType = Boolean), @p88='?' (Size = 200), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Products] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9),
+(@p60, @p61, @p62, @p63, @p64, @p65, 10),
+(@p66, @p67, @p68, @p69, @p70, @p71, 11),
+(@p72, @p73, @p74, @p75, @p76, @p77, 12),
+(@p78, @p79, @p80, @p81, @p82, @p83, 13),
+(@p84, @p85, @p86, @p87, @p88, @p89, 14)) AS i ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price])
+VALUES (i.[Barcode], i.[CategoryId], i.[Cost], i.[IsDeleted], i.[Name], i.[Price])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:11.937 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (DbType = Int32), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int32), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (DbType = Int32), @p74='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (DbType = Int32), @p84='?' (DbType = Int32), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (DbType = Int32), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (DbType = Int32), @p109='?' (DbType = Int32), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (DbType = Int32), @p114='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (DbType = Int32), @p119='?' (DbType = Int32), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (DbType = Int32), @p124='?' (DbType = Int32), @p125='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8),
+(@p9, @p10, @p11),
+(@p12, @p13, @p14),
+(@p15, @p16, @p17),
+(@p18, @p19, @p20),
+(@p21, @p22, @p23),
+(@p24, @p25, @p26),
+(@p27, @p28, @p29),
+(@p30, @p31, @p32),
+(@p33, @p34, @p35),
+(@p36, @p37, @p38),
+(@p39, @p40, @p41),
+(@p42, @p43, @p44),
+(@p45, @p46, @p47),
+(@p48, @p49, @p50),
+(@p51, @p52, @p53),
+(@p54, @p55, @p56),
+(@p57, @p58, @p59),
+(@p60, @p61, @p62),
+(@p63, @p64, @p65),
+(@p66, @p67, @p68),
+(@p69, @p70, @p71),
+(@p72, @p73, @p74),
+(@p75, @p76, @p77),
+(@p78, @p79, @p80),
+(@p81, @p82, @p83),
+(@p84, @p85, @p86),
+(@p87, @p88, @p89),
+(@p90, @p91, @p92),
+(@p93, @p94, @p95),
+(@p96, @p97, @p98),
+(@p99, @p100, @p101),
+(@p102, @p103, @p104),
+(@p105, @p106, @p107),
+(@p108, @p109, @p110),
+(@p111, @p112, @p113),
+(@p114, @p115, @p116),
+(@p117, @p118, @p119),
+(@p120, @p121, @p122),
+(@p123, @p124, @p125);
+2026-07-28 21:31:11.945 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+2026-07-28 21:31:11.974 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 20), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Size = 100), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p8='?' (Size = 100), @p9='?' (Size = 20), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 100), @p13='?' (Size = 20), @p14='?' (DbType = Int32), @p15='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p16='?' (Size = 100), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 100), @p21='?' (Size = 20), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Name], [Phone], [Role], [Target], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Phone], [Role], [Target])
+VALUES (i.[Name], i.[Phone], i.[Role], i.[Target])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:11.991 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [EmployeeWarehouses] ([EmployeeId], [WarehouseId])
+VALUES (@p0, @p1),
+(@p2, @p3),
+(@p4, @p5),
+(@p6, @p7),
+(@p8, @p9);
+2026-07-28 21:31:12.012 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 20), @p3='?' (DbType = Int32), @p4='?' (Size = 200), @p5='?' (Size = 100), @p6='?' (Size = 20), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 100), @p10='?' (Size = 20), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 100), @p14='?' (Size = 20), @p15='?' (DbType = Int32), @p16='?' (Size = 200), @p17='?' (Size = 100), @p18='?' (Size = 20), @p19='?' (DbType = Int32), @p20='?' (Size = 200), @p21='?' (Size = 100), @p22='?' (Size = 20), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Customers] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Address], [Name], [Phone], [Type], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Address], [Name], [Phone], [Type])
+VALUES (i.[Address], i.[Name], i.[Phone], i.[Type])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:12.057 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = Int32), @p42='?' (DbType = DateTime2), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Orders] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9)) AS i ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId])
+VALUES (i.[CreatedAt], i.[CustomerId], i.[SalesRepId], i.[Status], i.[TotalAmount], i.[WarehouseId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:31:12.110 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p49='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p64='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p79='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p94='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p99='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p104='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p109='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p114='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p119='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p124='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p126='?' (DbType = Int32), @p125='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p128='?' (DbType = Int32), @p127='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p130='?' (DbType = Int32), @p129='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p132='?' (DbType = Int32), @p131='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p134='?' (DbType = Int32), @p133='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p136='?' (DbType = Int32), @p135='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p138='?' (DbType = Int32), @p137='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p140='?' (DbType = Int32), @p139='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p142='?' (DbType = Int32), @p141='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p144='?' (DbType = Int32), @p143='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderDetails] ([OrderId], [ProductId], [Quantity], [TotalPrice], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4),
+(@p5, @p6, @p7, @p8, @p9),
+(@p10, @p11, @p12, @p13, @p14),
+(@p15, @p16, @p17, @p18, @p19),
+(@p20, @p21, @p22, @p23, @p24),
+(@p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34),
+(@p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44),
+(@p45, @p46, @p47, @p48, @p49),
+(@p50, @p51, @p52, @p53, @p54),
+(@p55, @p56, @p57, @p58, @p59),
+(@p60, @p61, @p62, @p63, @p64),
+(@p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74),
+(@p75, @p76, @p77, @p78, @p79),
+(@p80, @p81, @p82, @p83, @p84),
+(@p85, @p86, @p87, @p88, @p89),
+(@p90, @p91, @p92, @p93, @p94),
+(@p95, @p96, @p97, @p98, @p99),
+(@p100, @p101, @p102, @p103, @p104),
+(@p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114),
+(@p115, @p116, @p117, @p118, @p119),
+(@p120, @p121, @p122, @p123, @p124);
+UPDATE [Orders] SET [TotalAmount] = @p125
+OUTPUT 1
+WHERE [Id] = @p126;
+UPDATE [Orders] SET [TotalAmount] = @p127
+OUTPUT 1
+WHERE [Id] = @p128;
+UPDATE [Orders] SET [TotalAmount] = @p129
+OUTPUT 1
+WHERE [Id] = @p130;
+UPDATE [Orders] SET [TotalAmount] = @p131
+OUTPUT 1
+WHERE [Id] = @p132;
+UPDATE [Orders] SET [TotalAmount] = @p133
+OUTPUT 1
+WHERE [Id] = @p134;
+UPDATE [Orders] SET [TotalAmount] = @p135
+OUTPUT 1
+WHERE [Id] = @p136;
+UPDATE [Orders] SET [TotalAmount] = @p137
+OUTPUT 1
+WHERE [Id] = @p138;
+UPDATE [Orders] SET [TotalAmount] = @p139
+OUTPUT 1
+WHERE [Id] = @p140;
+UPDATE [Orders] SET [TotalAmount] = @p141
+OUTPUT 1
+WHERE [Id] = @p142;
+UPDATE [Orders] SET [TotalAmount] = @p143
+OUTPUT 1
+WHERE [Id] = @p144;
+2026-07-28 21:32:21.395 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'OrderDetail'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:32:21.512 +03:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-28 21:32:22.034 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:32:22.169 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2026-07-28 21:32:22.238 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TradeflowDb];
+2026-07-28 21:32:22.764 +03:00 [INF] Executed DbCommand (417ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TradeflowDb];
+2026-07-28 21:32:22.900 +03:00 [INF] Executed DbCommand (130ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TradeflowDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-07-28 21:32:22.913 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-07-28 21:32:23.007 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2026-07-28 21:32:23.013 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Customers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Type] int NOT NULL,
+    [Address] nvarchar(200) NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY ([Id])
+);
+2026-07-28 21:32:23.018 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Employees] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Role] int NOT NULL,
+    [Phone] nvarchar(20) NOT NULL,
+    [Target] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_Employees] PRIMARY KEY ([Id])
+);
+2026-07-28 21:32:23.023 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Warehouses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Location] nvarchar(200) NOT NULL,
+    CONSTRAINT [PK_Warehouses] PRIMARY KEY ([Id])
+);
+2026-07-28 21:32:23.028 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Barcode] nvarchar(50) NOT NULL,
+    [Price] decimal(18,2) NOT NULL,
+    [Cost] decimal(18,2) NOT NULL,
+    [CategoryId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:32:23.034 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EmployeeWarehouses] (
+    [EmployeeId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    CONSTRAINT [PK_EmployeeWarehouses] PRIMARY KEY ([EmployeeId], [WarehouseId]),
+    CONSTRAINT [FK_EmployeeWarehouses_Employees_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employees] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EmployeeWarehouses_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:32:23.041 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Orders] (
+    [Id] int NOT NULL IDENTITY,
+    [CustomerId] int NOT NULL,
+    [SalesRepId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Status] int NOT NULL,
+    [TotalAmount] decimal(18,2) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Orders_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Employees_SalesRepId] FOREIGN KEY ([SalesRepId]) REFERENCES [Employees] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Orders_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:32:23.047 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Stocks] (
+    [ProductId] int NOT NULL,
+    [WarehouseId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Stocks] PRIMARY KEY ([ProductId], [WarehouseId]),
+    CONSTRAINT [FK_Stocks_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Stocks_Warehouses_WarehouseId] FOREIGN KEY ([WarehouseId]) REFERENCES [Warehouses] ([Id]) ON DELETE CASCADE
+);
+2026-07-28 21:32:23.053 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [OrderDetails] (
+    [OrderId] int NOT NULL,
+    [ProductId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    [UnitPrice] decimal(18,2) NOT NULL,
+    [TotalPrice] decimal(18,2) NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY ([OrderId], [ProductId]),
+    CONSTRAINT [FK_OrderDetails_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_OrderDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE NO ACTION
+);
+2026-07-28 21:32:23.058 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EmployeeWarehouses_WarehouseId] ON [EmployeeWarehouses] ([WarehouseId]);
+2026-07-28 21:32:23.062 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_OrderDetails_ProductId] ON [OrderDetails] ([ProductId]);
+2026-07-28 21:32:23.066 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_CustomerId] ON [Orders] ([CustomerId]);
+2026-07-28 21:32:23.071 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_SalesRepId] ON [Orders] ([SalesRepId]);
+2026-07-28 21:32:23.076 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Orders_WarehouseId] ON [Orders] ([WarehouseId]);
+2026-07-28 21:32:23.081 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Barcode] ON [Products] ([Barcode]);
+2026-07-28 21:32:23.085 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2026-07-28 21:32:23.089 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Stocks_WarehouseId] ON [Stocks] ([WarehouseId]);
+2026-07-28 21:32:23.521 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Categories] USING (
+VALUES (@p0, 0),
+(@p1, 1),
+(@p2, 2),
+(@p3, 3),
+(@p4, 4)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:23.647 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 200), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Warehouses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2)) AS i ([Location], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Location], [Name])
+VALUES (i.[Location], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:23.785 +03:00 [INF] Executed DbCommand (31ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Boolean), @p4='?' (Size = 200), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (DbType = Boolean), @p10='?' (Size = 200), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 50), @p13='?' (DbType = Int32), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Boolean), @p16='?' (Size = 200), @p17='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p18='?' (Size = 50), @p19='?' (DbType = Int32), @p20='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p21='?' (DbType = Boolean), @p22='?' (Size = 200), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Size = 50), @p25='?' (DbType = Int32), @p26='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p27='?' (DbType = Boolean), @p28='?' (Size = 200), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 50), @p31='?' (DbType = Int32), @p32='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p33='?' (DbType = Boolean), @p34='?' (Size = 200), @p35='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p36='?' (Size = 50), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (DbType = Boolean), @p40='?' (Size = 200), @p41='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p42='?' (Size = 50), @p43='?' (DbType = Int32), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Boolean), @p46='?' (Size = 200), @p47='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p48='?' (Size = 50), @p49='?' (DbType = Int32), @p50='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p51='?' (DbType = Boolean), @p52='?' (Size = 200), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Size = 50), @p55='?' (DbType = Int32), @p56='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p57='?' (DbType = Boolean), @p58='?' (Size = 200), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (Size = 50), @p61='?' (DbType = Int32), @p62='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p63='?' (DbType = Boolean), @p64='?' (Size = 200), @p65='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p66='?' (Size = 50), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (DbType = Boolean), @p70='?' (Size = 200), @p71='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p72='?' (Size = 50), @p73='?' (DbType = Int32), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Boolean), @p76='?' (Size = 200), @p77='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p78='?' (Size = 50), @p79='?' (DbType = Int32), @p80='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p81='?' (DbType = Boolean), @p82='?' (Size = 200), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Size = 50), @p85='?' (DbType = Int32), @p86='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p87='?' (DbType = Boolean), @p88='?' (Size = 200), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Products] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9),
+(@p60, @p61, @p62, @p63, @p64, @p65, 10),
+(@p66, @p67, @p68, @p69, @p70, @p71, 11),
+(@p72, @p73, @p74, @p75, @p76, @p77, 12),
+(@p78, @p79, @p80, @p81, @p82, @p83, 13),
+(@p84, @p85, @p86, @p87, @p88, @p89, 14)) AS i ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Barcode], [CategoryId], [Cost], [IsDeleted], [Name], [Price])
+VALUES (i.[Barcode], i.[CategoryId], i.[Cost], i.[IsDeleted], i.[Name], i.[Price])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:23.881 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (DbType = Int32), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int32), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (DbType = Int32), @p74='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (DbType = Int32), @p84='?' (DbType = Int32), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (DbType = Int32), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (DbType = Int32), @p109='?' (DbType = Int32), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (DbType = Int32), @p114='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (DbType = Int32), @p119='?' (DbType = Int32), @p120='?' (DbType = Int32), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (DbType = Int32), @p124='?' (DbType = Int32), @p125='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8),
+(@p9, @p10, @p11),
+(@p12, @p13, @p14),
+(@p15, @p16, @p17),
+(@p18, @p19, @p20),
+(@p21, @p22, @p23),
+(@p24, @p25, @p26),
+(@p27, @p28, @p29),
+(@p30, @p31, @p32),
+(@p33, @p34, @p35),
+(@p36, @p37, @p38),
+(@p39, @p40, @p41),
+(@p42, @p43, @p44),
+(@p45, @p46, @p47),
+(@p48, @p49, @p50),
+(@p51, @p52, @p53),
+(@p54, @p55, @p56),
+(@p57, @p58, @p59),
+(@p60, @p61, @p62),
+(@p63, @p64, @p65),
+(@p66, @p67, @p68),
+(@p69, @p70, @p71),
+(@p72, @p73, @p74),
+(@p75, @p76, @p77),
+(@p78, @p79, @p80),
+(@p81, @p82, @p83),
+(@p84, @p85, @p86),
+(@p87, @p88, @p89),
+(@p90, @p91, @p92),
+(@p93, @p94, @p95),
+(@p96, @p97, @p98),
+(@p99, @p100, @p101),
+(@p102, @p103, @p104),
+(@p105, @p106, @p107),
+(@p108, @p109, @p110),
+(@p111, @p112, @p113),
+(@p114, @p115, @p116),
+(@p117, @p118, @p119),
+(@p120, @p121, @p122),
+(@p123, @p124, @p125);
+2026-07-28 21:32:23.893 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Stocks] ([ProductId], [WarehouseId], [Quantity])
+VALUES (@p0, @p1, @p2),
+(@p3, @p4, @p5),
+(@p6, @p7, @p8);
+2026-07-28 21:32:23.951 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (Size = 20), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Size = 100), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p8='?' (Size = 100), @p9='?' (Size = 20), @p10='?' (DbType = Int32), @p11='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p12='?' (Size = 100), @p13='?' (Size = 20), @p14='?' (DbType = Int32), @p15='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p16='?' (Size = 100), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (Size = 100), @p21='?' (Size = 20), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Name], [Phone], [Role], [Target], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Phone], [Role], [Target])
+VALUES (i.[Name], i.[Phone], i.[Role], i.[Target])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:23.981 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [EmployeeWarehouses] ([EmployeeId], [WarehouseId])
+VALUES (@p0, @p1),
+(@p2, @p3),
+(@p4, @p5),
+(@p6, @p7),
+(@p8, @p9);
+2026-07-28 21:32:24.025 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 100), @p2='?' (Size = 20), @p3='?' (DbType = Int32), @p4='?' (Size = 200), @p5='?' (Size = 100), @p6='?' (Size = 20), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 100), @p10='?' (Size = 20), @p11='?' (DbType = Int32), @p12='?' (Size = 200), @p13='?' (Size = 100), @p14='?' (Size = 20), @p15='?' (DbType = Int32), @p16='?' (Size = 200), @p17='?' (Size = 100), @p18='?' (Size = 20), @p19='?' (DbType = Int32), @p20='?' (Size = 200), @p21='?' (Size = 100), @p22='?' (Size = 20), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Customers] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1),
+(@p8, @p9, @p10, @p11, 2),
+(@p12, @p13, @p14, @p15, 3),
+(@p16, @p17, @p18, @p19, 4),
+(@p20, @p21, @p22, @p23, 5)) AS i ([Address], [Name], [Phone], [Type], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Address], [Name], [Phone], [Type])
+VALUES (i.[Address], i.[Name], i.[Phone], i.[Type])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:24.119 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = Int32), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (DbType = Int32), @p30='?' (DbType = DateTime2), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = DateTime2), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = Int32), @p42='?' (DbType = DateTime2), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p47='?' (DbType = Int32), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Int32), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Orders] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2),
+(@p18, @p19, @p20, @p21, @p22, @p23, 3),
+(@p24, @p25, @p26, @p27, @p28, @p29, 4),
+(@p30, @p31, @p32, @p33, @p34, @p35, 5),
+(@p36, @p37, @p38, @p39, @p40, @p41, 6),
+(@p42, @p43, @p44, @p45, @p46, @p47, 7),
+(@p48, @p49, @p50, @p51, @p52, @p53, 8),
+(@p54, @p55, @p56, @p57, @p58, @p59, 9)) AS i ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [CustomerId], [SalesRepId], [Status], [TotalAmount], [WarehouseId])
+VALUES (i.[CreatedAt], i.[CustomerId], i.[SalesRepId], i.[Status], i.[TotalAmount], i.[WarehouseId])
+OUTPUT INSERTED.[Id], i._Position;
+2026-07-28 21:32:24.204 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (DbType = Int32), @p23='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p24='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int32), @p33='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p34='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = Int32), @p38='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p39='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p40='?' (DbType = Int32), @p41='?' (DbType = Int32), @p42='?' (DbType = Int32), @p43='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p44='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p49='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p50='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int32), @p53='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p54='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (DbType = Int32), @p58='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p59='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p60='?' (DbType = Int32), @p61='?' (DbType = Int32), @p62='?' (DbType = Int32), @p63='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p64='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p65='?' (DbType = Int32), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p69='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int32), @p73='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p74='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p75='?' (DbType = Int32), @p76='?' (DbType = Int32), @p77='?' (DbType = Int32), @p78='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p79='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (DbType = Int32), @p83='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p84='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p85='?' (DbType = Int32), @p86='?' (DbType = Int32), @p87='?' (DbType = Int32), @p88='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p89='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p90='?' (DbType = Int32), @p91='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p94='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p95='?' (DbType = Int32), @p96='?' (DbType = Int32), @p97='?' (DbType = Int32), @p98='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p99='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p100='?' (DbType = Int32), @p101='?' (DbType = Int32), @p102='?' (DbType = Int32), @p103='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p104='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p105='?' (DbType = Int32), @p106='?' (DbType = Int32), @p107='?' (DbType = Int32), @p108='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p109='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p114='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p119='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p121='?' (DbType = Int32), @p120='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p123='?' (DbType = Int32), @p122='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p125='?' (DbType = Int32), @p124='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p127='?' (DbType = Int32), @p126='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p129='?' (DbType = Int32), @p128='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p131='?' (DbType = Int32), @p130='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p133='?' (DbType = Int32), @p132='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p135='?' (DbType = Int32), @p134='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p137='?' (DbType = Int32), @p136='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p139='?' (DbType = Int32), @p138='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderDetails] ([OrderId], [ProductId], [Quantity], [TotalPrice], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4),
+(@p5, @p6, @p7, @p8, @p9),
+(@p10, @p11, @p12, @p13, @p14),
+(@p15, @p16, @p17, @p18, @p19),
+(@p20, @p21, @p22, @p23, @p24),
+(@p25, @p26, @p27, @p28, @p29),
+(@p30, @p31, @p32, @p33, @p34),
+(@p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44),
+(@p45, @p46, @p47, @p48, @p49),
+(@p50, @p51, @p52, @p53, @p54),
+(@p55, @p56, @p57, @p58, @p59),
+(@p60, @p61, @p62, @p63, @p64),
+(@p65, @p66, @p67, @p68, @p69),
+(@p70, @p71, @p72, @p73, @p74),
+(@p75, @p76, @p77, @p78, @p79),
+(@p80, @p81, @p82, @p83, @p84),
+(@p85, @p86, @p87, @p88, @p89),
+(@p90, @p91, @p92, @p93, @p94),
+(@p95, @p96, @p97, @p98, @p99),
+(@p100, @p101, @p102, @p103, @p104),
+(@p105, @p106, @p107, @p108, @p109),
+(@p110, @p111, @p112, @p113, @p114),
+(@p115, @p116, @p117, @p118, @p119);
+UPDATE [Orders] SET [TotalAmount] = @p120
+OUTPUT 1
+WHERE [Id] = @p121;
+UPDATE [Orders] SET [TotalAmount] = @p122
+OUTPUT 1
+WHERE [Id] = @p123;
+UPDATE [Orders] SET [TotalAmount] = @p124
+OUTPUT 1
+WHERE [Id] = @p125;
+UPDATE [Orders] SET [TotalAmount] = @p126
+OUTPUT 1
+WHERE [Id] = @p127;
+UPDATE [Orders] SET [TotalAmount] = @p128
+OUTPUT 1
+WHERE [Id] = @p129;
+UPDATE [Orders] SET [TotalAmount] = @p130
+OUTPUT 1
+WHERE [Id] = @p131;
+UPDATE [Orders] SET [TotalAmount] = @p132
+OUTPUT 1
+WHERE [Id] = @p133;
+UPDATE [Orders] SET [TotalAmount] = @p134
+OUTPUT 1
+WHERE [Id] = @p135;
+UPDATE [Orders] SET [TotalAmount] = @p136
+OUTPUT 1
+WHERE [Id] = @p137;
+UPDATE [Orders] SET [TotalAmount] = @p138
+OUTPUT 1
+WHERE [Id] = @p139;
+2026-07-28 21:32:24.430 +03:00 [INF] Now listening on: http://localhost:5157
+2026-07-28 21:32:24.437 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-28 21:32:24.439 +03:00 [INF] Hosting environment: Development
+2026-07-28 21:32:24.441 +03:00 [INF] Content root path: C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.API
+2026-07-28 21:32:46.890 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/ - null null
+2026-07-28 21:32:46.940 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-07-28 21:32:46.946 +03:00 [INF] HTTP GET / responded 404 in 8.7232 ms
+2026-07-28 21:32:46.975 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/ - 404 0 null 89.8122ms
+2026-07-28 21:32:46.993 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5157/, Response status code: 404
+2026-07-28 21:32:56.538 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/ - null null
+2026-07-28 21:32:56.546 +03:00 [INF] HTTP GET / responded 404 in 0.5399 ms
+2026-07-28 21:32:56.551 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/ - 404 0 null 13.0529ms
+2026-07-28 21:32:56.556 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5157/, Response status code: 404
+2026-07-28 21:33:40.209 +03:00 [INF] Application is shutting down...

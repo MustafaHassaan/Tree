@@ -1,0 +1,15 @@
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\bin\Debug\net9.0\Tradeflow.Application.deps.json
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\bin\Debug\net9.0\Tradeflow.Application.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\bin\Debug\net9.0\Tradeflow.Application.pdb
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\bin\Debug\net9.0\Tradeflow.Domain.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\bin\Debug\net9.0\Tradeflow.Domain.pdb
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.csproj.AssemblyReference.cache
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.AssemblyInfoInputs.cache
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.AssemblyInfo.cs
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.csproj.CoreCompileInputs.cache
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflo.4019CF66.Up2Date
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\refint\Tradeflow.Application.dll
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\Tradeflow.Application.pdb
+C:\Users\Mostafa\Desktop\Tree\Backend\Tradeflow.Application\obj\Debug\net9.0\ref\Tradeflow.Application.dll

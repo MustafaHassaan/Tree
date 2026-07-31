@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Management | Wholesale Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "outline": "#737686",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "tertiary": "#943700",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-tint": "#0053db",
+                    "on-primary-container": "#eeefff",
+                    "on-secondary-container": "#57657a",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-error": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004ac6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "inverse-surface": "#2d3133",
+                    "on-surface-variant": "#434655",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d5e3fc",
+                    "secondary-container": "#d5e3fc",
+                    "background": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#515f74",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-background": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "32px",
+                    "xs": "4px",
+                    "column-gutter": "20px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-on-surface border-r border-outline-variant flex flex-col z-[60]">
+<div class="p-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">B2B Wholesale</h1>
+<p class="font-label-md text-label-md text-on-primary/70">Enterprise Suite</p>
+</div>
+<nav class="flex-1 px-sm space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="font-body-md text-body-md">Warehouses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md text-body-md">Sales Reps</span>
+</a>
+<!-- Active State: Orders -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container border-l-4 border-primary font-bold" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto p-sm border-t border-white/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center h-16 px-lg w-full bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-md">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-body-md focus:ring-2 focus:ring-primary" placeholder="Search orders, customers, or SKUs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md mr-lg border-r border-outline-variant pr-lg">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+<span class="font-label-md text-label-md">Sync Data</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span class="font-label-md text-label-md">Quick Actions</span>
+</button>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">history</span>
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive for a wholesale B2B platform, shot in high-key studio lighting. The person is wearing a sharp navy blue blazer over a crisp white shirt, representing a clean and trustworthy business professional. The background is a soft, blurred office environment with a palette of cool grays and corporate blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRGVMoke5yjJ4qqiEJzgln3N6LRe6MBleLb0fNz8TCe53HT_GuB_660yCxkUPExWV6IUKyGEy1CdziZt_5zUOLfmTm1kJ5EIkZ_fbmZQtxRbEn4smo9QqPpn0l8QODBPhqdP6IEbwNmUoXxb3AU4CdFNWpUJfrG2mV7eRfla0nq7SVppGlC2k83lp7fKgyssdwJnpL22q98uhGPoBUtTzCcsXoKFVbQFPLRUyLd9SeIJ_3yJPmyUug66cysLRoCdENxp3HDWeWLes"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-lg space-y-lg max-w-[1600px] mx-auto w-full">
+<!-- Breadcrumbs & Title -->
+<div class="flex justify-between items-end">
+<div>
+<nav class="flex text-label-md text-on-surface-variant mb-1">
+<span>Orders</span>
+<span class="mx-2">/</span>
+<span class="text-primary font-bold">New Creation</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg">Order Management</h2>
+</div>
+<div class="flex gap-md">
+<button class="px-6 py-2.5 border border-outline-variant rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                        Save Draft
+                    </button>
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90 shadow-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New Order
+                    </button>
+</div>
+</div>
+<!-- Main Order Workspace (Split Screen) -->
+<div class="grid grid-cols-12 gap-lg h-[680px]">
+<!-- Left Column: Customer & Product Selection -->
+<div class="col-span-8 flex flex-col gap-lg h-full">
+<!-- Customer Selector Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex-shrink-0">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person_search</span>
+                                Customer Selection
+                            </h3>
+<span class="text-label-md text-primary bg-primary/5 px-2 py-1 rounded">Active Session</span>
+</div>
+<div class="grid grid-cols-3 gap-md">
+<button class="flex flex-col items-start p-md border-2 border-primary bg-primary/5 rounded-xl text-left transition-all group">
+<div class="flex justify-between w-full mb-2">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">storefront</span>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Retail Shop</span>
+<span class="font-body-lg text-body-lg font-bold">Metropolis Grocery</span>
+<span class="font-label-md text-label-md text-on-surface-variant">ID: WH-99201</span>
+</button>
+<button class="flex flex-col items-start p-md border border-outline-variant rounded-xl text-left hover:border-primary/50 transition-all group">
+<div class="flex justify-between w-full mb-2">
+<span class="material-symbols-outlined text-outline-variant bg-surface-container p-2 rounded-lg group-hover:text-primary group-hover:bg-primary/10">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Restaurant</span>
+<span class="font-body-lg text-body-lg font-bold">L'Avenue Bistro</span>
+<span class="font-label-md text-label-md text-on-surface-variant">ID: WH-88312</span>
+</button>
+<button class="flex flex-col items-start p-md border border-outline-variant rounded-xl text-left hover:border-primary/50 transition-all group">
+<div class="flex justify-between w-full mb-2">
+<span class="material-symbols-outlined text-outline-variant bg-surface-container p-2 rounded-lg group-hover:text-primary group-hover:bg-primary/10">apartment</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Hotel</span>
+<span class="font-body-lg text-body-lg font-bold">Grand Plaza Hotel</span>
+<span class="font-label-md text-label-md text-on-surface-variant">ID: WH-77405</span>
+</button>
+</div>
+</section>
+<!-- Product Catalog Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex-1 flex flex-col overflow-hidden">
+<div class="p-lg border-b border-outline-variant bg-surface-container-low/30">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                                    Product Catalog
+                                </h3>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-low"><span class="material-symbols-outlined text-[18px]">filter_list</span></button>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-low"><span class="material-symbols-outlined text-[18px]">grid_view</span></button>
+</div>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-body-md focus:ring-primary focus:border-primary" placeholder="Search by SKU, Category, or Name..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-lg">
+<div class="grid grid-cols-2 gap-md">
+<!-- Product Item 1 -->
+<div class="flex gap-md p-md border border-outline-variant rounded-xl hover:shadow-md transition-shadow group relative bg-surface-container-lowest">
+<div class="w-24 h-24 rounded-lg bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-resolution commercial product photograph of premium organic whole bean coffee bags. The packaging is minimalist, matte charcoal black with clean white typography. The lighting is sophisticated, with soft rim light highlighting the texture of the bag against a neutral studio gray background. The overall aesthetic is high-end, clean, and corporate, fitting for a B2B wholesale catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfPBqj128MM536HtVsrac2Qgo17KDz2v-I_aBXRyFn2y8b0WS4TUXqgd2nIJo3qUkJA8G3s4jzNCVkvcal8VqvMU-41Yd40RjixeAzp8opqW04H2AeRmtlVFBc9pmgaDkH5wvtwiD_ZRfN99RkAdiptFYZikcTfQ8J8C1CFhY6DsuByMHbRnE483dlWExBl4AngxN6oWkOTosrUp1d-fn6iZ-5XcW3WIBrE-OzFPXiBm9jpL_5CqkVBH9eZY9DgSKhgnO9d_rpX_w"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase bg-surface-container-high px-1.5 rounded">Beverage</span>
+<h4 class="font-body-lg text-body-lg font-bold mt-1">Premium Arabica Beans</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">SKU: CF-8821-X</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-primary font-bold font-title-lg">$24.50 <small class="text-[10px] text-on-surface-variant">/ unit</small></span>
+<button class="p-1.5 bg-primary-container text-on-primary-container rounded-lg hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex gap-md p-md border border-outline-variant rounded-xl hover:shadow-md transition-shadow group relative bg-surface-container-lowest">
+<div class="w-24 h-24 rounded-lg bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Studio quality product shot of a crate of artisanal mineral water bottles. The glass bottles are clear, filled with sparkling water, featuring elegant silver labels. They are arranged neatly in a polished wooden wholesale crate. The lighting is crisp and bright, creating beautiful reflections and caustics on the glass surfaces. Minimalist, modern, and high-density industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMr6r0xECFY7974-QZApmYEdyTiKpSgQ70oTzlWPWYXdvKZyfBv-wyYZWTURGa5TPEXbYs92spjl4Ft90fOjWJeIEAyDcJnpAg7kRWzSydi3dCotuiNZZl6QBWgvPam2JgopeHvLn9u0kAWuIJOkX8-8mKS8vaORFmDcJJjGOPPiC36CFAtm4Zs5C9N27IlT3-I174oJyTCLO1nM3U6YhLISu9hDRXvybbF8RqjV-82kUsLzlLNEbh_l7j5YWf4YCzGBzOuPd0p5I"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase bg-surface-container-high px-1.5 rounded">Beverage</span>
+<h4 class="font-body-lg text-body-lg font-bold mt-1">Sparkling Mineral Water</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">SKU: WT-1102-S</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-primary font-bold font-title-lg">$12.90 <small class="text-[10px] text-on-surface-variant">/ unit</small></span>
+<button class="p-1.5 bg-primary-container text-on-primary-container rounded-lg hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Item 3 -->
+<div class="flex gap-md p-md border border-outline-variant rounded-xl hover:shadow-md transition-shadow group relative bg-surface-container-lowest opacity-60">
+<div class="w-24 h-24 rounded-lg bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0 grayscale">
+<img class="w-full h-full object-cover" data-alt="Commercial photograph of professional grade cleaning supplies set for industrial kitchens. Large white containers with clear blue liquid, labeled with minimalist B2B branding. Shot on a polished stainless steel surface in a modern industrial setting. Bright, sterile lighting emphasizing cleanliness and reliability. Corporate aesthetic with high technical detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbk0r9VJfbxwT53jIj_frIImYD-qi98TAI8lnQbMvUQGSNcdYarE38k5vjal2_6IHjDyXVg0aXzuAwIEuxCBNVViQK9MR6WNtiAHiFTFfAsEjShiAadoyYTk8Sv2zqyXXBsJQB2Zq3HRg80e4lGaYusYM_CG2wNZX19P6D4VcBbRwezIhWOb1TTIa5VybL7FjBSr3U0JvgGVUFIAXfw4JIoGRbhCKEiK_WPchy0_wZ7JyNHqZfNbpx7TwhCTtqXqev9kOR2xED-s"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/20 px-1.5 rounded uppercase">Out of Stock</span>
+<h4 class="font-body-lg text-body-lg font-bold mt-1">Industrial Sanitizer</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">SKU: CL-4432-B</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-on-surface-variant font-bold font-title-lg">$45.00</span>
+<button class="p-1.5 bg-surface-container-high text-outline rounded-lg cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined">block</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Item 4 -->
+<div class="flex gap-md p-md border border-outline-variant rounded-xl hover:shadow-md transition-shadow group relative bg-surface-container-lowest">
+<div class="w-24 h-24 rounded-lg bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Artistic studio product photography of organic whole grain flower sacks. The sacks are made of high-quality cream-colored linen with bold black typography. Soft, warm natural light spills from the side, creating gentle shadows and highlighting the textile texture. The scene is clean, modern, and professional, suggesting premium wholesale quality for bakeries and hotels." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsEqzxe-MoncDlzraSS08ECskNFGzmweu_TIq3V1GZwL1dTrPLcTow0q939G-8GQ7go0vpT7Q6bXt9Sk70knrBRtpqC2gJBk4sEEhSXpdetaT1WEWPSWhcny8Oznxy5jkWrUwWOi5u-ZiwerWrfhtDE9Y6H33n1kjzROEL-9JiRdpwx8o4Tlr_JS4Smwu2nE7UT30U6eShwEO311Kp-8CbvVyEtPNiNH98HnLf2ewsNsc9JEgI1SWyfyZ_q1WE-3iT0qsg4lRO2JM"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase bg-surface-container-high px-1.5 rounded">Pantry</span>
+<h4 class="font-body-lg text-body-lg font-bold mt-1">Organic Wheat Flour</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">SKU: FL-0912-W</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-primary font-bold font-title-lg">$38.25 <small class="text-[10px] text-on-surface-variant">/ unit</small></span>
+<button class="p-1.5 bg-primary-container text-on-primary-container rounded-lg hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="col-span-4 h-full">
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg flex flex-col h-full overflow-hidden">
+<div class="p-lg bg-primary-container text-on-primary-container">
+<h3 class="font-title-lg text-title-lg flex items-center gap-2">
+<span class="material-symbols-outlined">shopping_basket</span>
+                                Order Summary
+                            </h3>
+<p class="font-label-md text-label-md opacity-80">Reference: ORD-2024-8832</p>
+</div>
+<!-- List of Added Items -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-lg space-y-md">
+<div class="flex gap-md py-md border-b border-outline-variant/50">
+<div class="flex-1">
+<h5 class="font-body-md text-body-md font-bold">Premium Arabica Beans</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unit: $24.50</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden h-9">
+<button class="px-2 hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 text-label-md bg-transparent" type="text" value="12"/>
+<button class="px-2 hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+<span class="font-body-md text-body-md font-bold w-20 text-right">$294.00</span>
+</div>
+</div>
+<div class="flex gap-md py-md border-b border-outline-variant/50">
+<div class="flex-1">
+<h5 class="font-body-md text-body-md font-bold">Sparkling Mineral Water</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unit: $12.90</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden h-9">
+<button class="px-2 hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 text-label-md bg-transparent" type="text" value="5"/>
+<button class="px-2 hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+<span class="font-body-md text-body-md font-bold w-20 text-right">$64.50</span>
+</div>
+</div>
+<!-- Empty State Placeholder (Visual density) -->
+<div class="py-lg text-center opacity-20 border-2 border-dashed border-outline-variant rounded-xl">
+<span class="material-symbols-outlined text-[48px]">playlist_add</span>
+<p class="text-label-md">Add more items to this order</p>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="p-lg bg-surface-container-low/50 border-t border-outline-variant space-y-sm">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="font-medium">$358.50</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Estimated Tax (8%)</span>
+<span class="font-medium">$28.68</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Wholesale Discount</span>
+<span class="text-tertiary-container font-medium">-$15.00</span>
+</div>
+<div class="pt-sm border-t border-outline-variant flex justify-between items-center">
+<span class="font-title-lg text-title-lg">Total Amount</span>
+<span class="font-headline-lg text-headline-lg text-primary">$372.18</span>
+</div>
+</div>
+<div class="p-lg">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:bg-primary/90 shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">send_and_archive</span>
+                                Confirm Order
+                            </button>
+<p class="text-center text-label-md text-on-surface-variant mt-md flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                                Secure checkout for Wholesale Partners
+                            </p>
+</div>
+</section>
+</div>
+</div>
+<!-- Recent Orders Section (Enterprise Table) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low/20">
+<h3 class="font-headline-md text-headline-md">Recent Orders</h3>
+<div class="flex gap-md">
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors">Export CSV</button>
+<button class="px-4 py-2 border border-outline-variant rounded-lg font-label-md hover:bg-surface-container-low transition-colors">View All History</button>
+</div>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase">Order ID</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase">Customer</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase">Date</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase">Amount</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase">Status</th>
+<th class="px-lg py-4 font-label-sm text-label-sm text-on-surface-variant uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-4 font-body-md font-bold text-primary">#ORD-2024-112</td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+</div>
+<span class="font-body-md">Urban Harvest Market</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant font-body-md">Oct 24, 2023</td>
+<td class="px-lg py-4 font-body-md font-bold">$1,240.50</td>
+<td class="px-lg py-4">
+<span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-label-sm font-bold border border-green-200">Delivered</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-4 font-body-md font-bold text-primary">#ORD-2024-111</td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</div>
+<span class="font-body-md">Skyline Rooftop Bar</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant font-body-md">Oct 23, 2023</td>
+<td class="px-lg py-4 font-body-md font-bold">$842.10</td>
+<td class="px-lg py-4">
+<span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-label-sm font-bold border border-blue-200">Processing</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-4 font-body-md font-bold text-primary">#ORD-2024-110</td>
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<span class="font-body-md">Seaside Resort &amp; Spa</span>
+</div>
+</td>
+<td class="px-lg py-4 text-on-surface-variant font-body-md">Oct 22, 2023</td>
+<td class="px-lg py-4 font-body-md font-bold">$5,310.00</td>
+<td class="px-lg py-4">
+<span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-label-sm font-bold border border-amber-200">Pending Pay</span>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Micro-interactions for quantity adjustment and hover states
+        document.querySelectorAll('.flex.items-center.border.border-outline-variant').forEach(container => {
+            const input = container.querySelector('input');
+            const [minusBtn, plusBtn] = container.querySelectorAll('button');
+            
+            minusBtn.addEventListener('click', () => {
+                let val = parseInt(input.value);
+                if (val > 1) input.value = val - 1;
+                input.dispatchEvent(new Event('change'));
+            });
+            
+            plusBtn.addEventListener('click', () => {
+                let val = parseInt(input.value);
+                input.value = val + 1;
+                input.dispatchEvent(new Event('change'));
+            });
+        });
+
+        // Simulating product addition visual feedback
+        document.querySelectorAll('button[class*="primary-container"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                const originalIcon = icon.innerText;
+                icon.innerText = 'check_circle';
+                this.classList.replace('bg-primary-container', 'bg-green-500');
+                this.classList.replace('text-on-primary-container', 'text-white');
+                
+                setTimeout(() => {
+                    icon.innerText = originalIcon;
+                    this.classList.replace('bg-green-500', 'bg-primary-container');
+                    this.classList.replace('text-white', 'text-on-primary-container');
+                }, 1500);
+            });
+        });
+    </script>
+</body></html>
